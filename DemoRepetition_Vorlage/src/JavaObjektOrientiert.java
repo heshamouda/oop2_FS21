@@ -7,7 +7,7 @@ import java.awt.event.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-class View extends JPanel{
+class View extends JPanel implements MouseMotionListener{
 
 	private TraceV7 trace = new TraceV7(this);
 	private static final long serialVersionUID = 1L;
@@ -18,7 +18,7 @@ class View extends JPanel{
 	public View() {
 		super(null);
 		trace.constructorCall();
-		
+		addMouseMotionListener(this); //register the listener
 
 	}
 
@@ -29,22 +29,45 @@ class View extends JPanel{
 		kreis.zeichne(g);
 	}
 
+	@Override
+	public void mouseDragged(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
 
+	@Override
+	public void mouseMoved(MouseEvent e) {
+		// TODO Auto-generated method stub
+		System.out.println("xpos : "+e.getX() + " ypos : "+e.getY());
+	}
 
 }
 
+class Form {
+	protected int x, y, d;
 
-
-class Quadrat  {
-	private TraceV7 trace = new TraceV7(this);
-	private int x, y, d;
-
-	public Quadrat(int x, int y, int d) {
-		
-		trace.constructorCall();
+	public Form(int x, int y, int d) {
 		this.x = x;
 		this.y = y;
 		this.d = d;
+	}
+
+	public void zeichne(Graphics graphics) {
+		//nothing to DO here
+
+	}
+}
+
+class Quadrat extends Form {
+	private TraceV7 trace = new TraceV7(this);
+	//private int x, y, d;
+
+	public Quadrat(int x, int y, int d) {
+		super(x,y,d);
+		trace.constructorCall();
+//		this.x = x;
+//		this.y = y;
+//		this.d = d;
 	}
 
 	public void zeichne(Graphics g) {
@@ -59,16 +82,16 @@ class Quadrat  {
 
 }
 
-class Kreis {
+class Kreis extends Form{
 	private TraceV7 trace = new TraceV7(this);
-	private int x, y, d;
+	//private int x, y, d;
 
 	public Kreis(int x, int y, int d) {
-		
+		super(x, y, d);
 		trace.constructorCall();
-		this.x = x;
-		this.y = y;
-		this.d = d;
+//		this.x = x;
+//		this.y = y;
+//		this.d = d;
 	}
 
 	public void zeichne(Graphics g) {

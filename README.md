@@ -1,4 +1,4 @@
 # oop2 FS21
 
-- Lesso 1: Demo and repitition
+- Lesson 1: Demo and repitition
 

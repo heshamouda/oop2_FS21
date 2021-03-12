@@ -60,7 +60,7 @@ class Form { //1. Klasse Form definieren ud Quadrat/Kreis ableiten
 
 class Quadrat extends Form {
 	private TraceV7 trace = new TraceV7(this);
-	private int x, y, b;
+	// private int x, y, b;
 
 	public Quadrat(int x, int y, int d) {
 		super(x, y, d);
@@ -84,7 +84,7 @@ class Quadrat extends Form {
 
 class Kreis extends Form {
 	private TraceV7 trace = new TraceV7(this);
-	private int x, y, d;
+	//private int x, y, d;
 
 	public Kreis(int x, int y, int d) {
 		super(x, y, d);

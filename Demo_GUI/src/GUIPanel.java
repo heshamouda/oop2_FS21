@@ -21,16 +21,11 @@ public class GUIPanel extends JPanel implements ActionListener {
 	private int zahl = 42;
 
 	public GUIPanel() {
-		setBorder(MyBorderFactory.createMyBorder(" GUIPanel "));
-
-		
-
-		
+		setBorder(MyBorderFactory.createMyBorder(" GUIPanel "));		
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		
+	public void actionPerformed(ActionEvent e) {		
 		
 		
 	}

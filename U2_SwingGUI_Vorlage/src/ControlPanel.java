@@ -61,7 +61,7 @@ public class ControlPanel extends JPanel implements ActionListener {
 			taOutput.append("HP button is on \r\n");
 		}
 		if (e.getSource() == lpButton) {
-			taOutput.append("LP button is on \r\n");
+			taOutput.append("LP button "+e.getActionCommand()+" is on \r\n");
 		}
 	}
 }

@@ -15,7 +15,7 @@ public class TopPanel extends JPanel {
 	public TopPanel() {
 		setLayout(new GridBagLayout());
 	
-		add(parameterPanel, new GridBagConstraints() 
+		add(parameterPanel, new GridBagConstraints(0,0, 1, 1, 1.0,1.0,GridBagConstraints.CENTER,GridBagConstraints.HORIZONTAL, new Insets(10, 10, 10, 10), 0, 0)); 
 	}
 	
 

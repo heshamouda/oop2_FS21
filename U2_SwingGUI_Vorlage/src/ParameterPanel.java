@@ -23,6 +23,15 @@ public class ParameterPanel extends JPanel  {
 		
 		setLayout(new GridBagLayout());
 		setBorder(MyBorderFactory.createMyBorder(" Parameter Panel "));
+		add(new JLabel("Parameter 1"), new GridBagConstraints(0, 0, 1, 1, 1.0, 1.0, GridBagConstraints.WEST,
+				GridBagConstraints.NONE, new Insets(10, 10, 10, 10), 0, 0));
+		
+		add(new JLabel("Parameter 2"), new GridBagConstraints(0, 1, 1, 1, 1.0, 1.0, GridBagConstraints.WEST,
+				GridBagConstraints.NONE, new Insets(10, 10, 10, 10), 0, 0));
+		
+		add(new JLabel("Parameter 3"), new GridBagConstraints(0, 2, 1, 1, 1.0, 1.0, GridBagConstraints.WEST,
+				GridBagConstraints.NONE, new Insets(10, 10, 10, 10), 0, 0));
+
 
 		
 		

@@ -26,9 +26,16 @@ public class ControlPanel extends JPanel implements ActionListener {
 		
 		hpButton= new JRadioButton("Hochpass");
 		hpButton.setMnemonic(KeyEvent.VK_H); //to be actioned using alt+H
-		hpButton.setActionCommand("Hochpass"); //to read when press the button
+		hpButton.setActionCommand("Hochpass is on"); //to read when press the button
 		hpButton.setSelected(true);
 		hpButton.addActionListener(this);
+		
+		lpButton= new JRadioButton("Tiefpass");
+		lpButton.setMnemonic(KeyEvent.VK_T); //to be actioned using alt+H
+		lpButton.setActionCommand("Tiefpass is on"); //to read when press the button
+		lpButton.setSelected(true);
+		lpButton.addActionListener(this);
+		
 		
 		
 		

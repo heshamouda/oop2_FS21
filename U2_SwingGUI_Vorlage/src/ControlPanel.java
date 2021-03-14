@@ -53,7 +53,15 @@ public class ControlPanel extends JPanel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-
+		// print a text
+		if (e.getSource() == btExecute) {
+			taOutput.append("Execute button is on \r\n");
+		}
+		if (e.getSource().equals(hpButton)) {
+			taOutput.append("HP button is on \r\n");
+		}
+		if (e.getSource() == lpButton) {
+			taOutput.append("LP button is on \r\n");
+		}
 	}
 }

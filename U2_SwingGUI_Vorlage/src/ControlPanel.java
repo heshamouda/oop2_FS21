@@ -24,6 +24,12 @@ public class ControlPanel extends JPanel implements ActionListener {
 		setBorder(MyBorderFactory.createMyBorder(" Control Panel "));
 		setPreferredSize(new Dimension(550, 400));
 		
+		hpButton= new JRadioButton("Hochpass");
+		hpButton.setMnemonic(KeyEvent.VK_H); //to be actioned using alt+H
+		hpButton.setActionCommand("Hochpass"); //to read when press the button
+		hpButton.setSelected(true);
+		hpButton.addActionListener(this);
+		
 		
 		
 	}

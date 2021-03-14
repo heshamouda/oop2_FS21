@@ -23,7 +23,7 @@ public class ControlPanel extends JPanel implements ActionListener {
 		setLayout(new BorderLayout());
 		setBorder(MyBorderFactory.createMyBorder(" Control Panel "));
 		setPreferredSize(new Dimension(550, 400));
-		
+		//create the buttons
 		hpButton= new JRadioButton("Hochpass");
 		hpButton.setMnemonic(KeyEvent.VK_H); //to be actioned using alt+H
 		hpButton.setActionCommand("Hochpass is on"); //to read when press the button
@@ -33,8 +33,20 @@ public class ControlPanel extends JPanel implements ActionListener {
 		lpButton= new JRadioButton("Tiefpass");
 		lpButton.setMnemonic(KeyEvent.VK_T); //to be actioned using alt+H
 		lpButton.setActionCommand("Tiefpass is on"); //to read when press the button
-		lpButton.setSelected(true);
-		lpButton.addActionListener(this);
+		//lpButton.setSelected(true);
+		//lpButton.addActionListener(this);
+		
+		//create the field of group
+		ButtonGroup filterGroup= new ButtonGroup();
+		filterGroup.add(hpButton);
+		filterGroup.add(lpButton);
+		
+		//add the buttons
+		add(hpButton,BorderLayout.WEST);
+		add(lpButton,BorderLayout.EAST);
+		
+		
+		
 		
 		
 		

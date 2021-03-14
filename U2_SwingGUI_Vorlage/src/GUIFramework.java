@@ -36,7 +36,15 @@ public class GUIFramework extends JFrame implements ActionListener{
 		drehenItem= new JMenuItem("Rotate");
 		zoomItem= new JMenuItem("Zoom");
 		anzeigeMenu.add(drehenItem);
-		drehenItem.addActionListener(this);
+//		drehenItem.addActionListener(this);
+		drehenItem.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				System.out.println("rotate the view");
+			}
+		});
 		anzeigeMenu.add(zoomItem);
 //		zoomItem.addActionListener(this);
 		

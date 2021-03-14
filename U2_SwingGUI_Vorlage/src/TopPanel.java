@@ -10,11 +10,13 @@ public class TopPanel extends JPanel {
 	private ParameterPanel parameterPanel = new ParameterPanel();
 	private PropertyPanel propertyPanel = new PropertyPanel();
 	private ControlPanel controlPanel = new ControlPanel();
+	//GridBagConstraints gpc=new GridBagConstraints();
 
 	public TopPanel() {
 		setLayout(new GridBagLayout());
-
-		
+	
+		add(parameterPanel, new GridBagConstraints() 
 	}
+	
 
 }

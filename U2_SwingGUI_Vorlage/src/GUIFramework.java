@@ -68,6 +68,9 @@ public class GUIFramework extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+		if (e.getSource()==openItem) {
+			System.out.println("File open");			
+		}
 		
 	}
 }

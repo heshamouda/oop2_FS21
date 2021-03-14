@@ -33,6 +33,6 @@ public class ParameterPanel extends JPanel {
 				GridBagConstraints.HORIZONTAL, new Insets(10, 10, 10, 10), 0, 0));
 		
 		add(new JLabel(), new GridBagConstraints(0, 3, 2, 1, 1.0, 0.0, GridBagConstraints.WEST,
-				GridBagConstraints.HORIZONTAL, new Insets(10, 10, 10, 10), 0, 0));
+				GridBagConstraints.HORIZONTAL, new Insets(10, 10, 10, 10), 0, 0)); //empty line
 	}
 }

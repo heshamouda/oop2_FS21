@@ -18,7 +18,25 @@ public class PropertyPanel extends JPanel {
 		setLayout(new GridBagLayout());
 		setBorder(MyBorderFactory.createMyBorder(" Property Panel "));
 
-		
+		add(new JLabel("Property1"), new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0, GridBagConstraints.WEST,
+				GridBagConstraints.NONE, new Insets(10, 10, 10, 10), 0, 0));
+		add(tfProp1, new GridBagConstraints(1, 0, 1, 1, 1.0, 0.0, GridBagConstraints.WEST,
+				GridBagConstraints.HORIZONTAL, new Insets(10, 10, 10, 10), 0, 0));
+		tfProp1.setEditable(false);
+
+		add(new JLabel("Select"), new GridBagConstraints(0, 1, 1, 1, 0.0, 0.0, GridBagConstraints.WEST,
+				GridBagConstraints.NONE, new Insets(10, 10, 10, 10), 0, 0));
+		add(btbutton1, new GridBagConstraints(1, 1, 1, 1, 1.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.NONE,
+				new Insets(10, 10, 10, 10), 0, 0));
+
+		add(new JLabel("Property3"), new GridBagConstraints(0, 2, 1, 1, 0.0, 0.0, GridBagConstraints.WEST,
+				GridBagConstraints.NONE, new Insets(10, 10, 10, 10), 0, 0));
+		add(tfProp2, new GridBagConstraints(1, 2, 1, 1, 1.0, 0.0, GridBagConstraints.WEST,
+				GridBagConstraints.HORIZONTAL, new Insets(10, 10, 10, 10), 0, 0));
+		tfProp2.setEditable(false);
+
+		add(new JLabel(), new GridBagConstraints(0, 4, 2, 1, 1.0, 0.0, GridBagConstraints.WEST,
+				GridBagConstraints.HORIZONTAL, new Insets(10, 10, 10, 10), 0, 0)); // empty line
 
 	}
 

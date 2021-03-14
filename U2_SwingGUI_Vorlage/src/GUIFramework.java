@@ -17,11 +17,18 @@ public class GUIFramework extends JFrame {
 	JMenu fileMenu, anzeigeMenu;
 	JMenuItem openItem, saveItem, drehenItem, zoomItem;
 
-	public GUIFramework() {
+	public GUIFramework() { //constructor
 		// Deklaration
 		view = new TopPanel();
 		add(view);
 		
+		anzeigeMenu= new JMenu("File");
+		openItem= new JMenuItem("Open");
+		saveItem= new JMenuItem("Save");
+		
+		anzeigeMenu= new JMenu("View");
+		drehenItem= new JMenuItem("Rotate");
+		zoomItem= new JMenuItem("Zoom");
 
 	}
 

@@ -35,8 +35,10 @@ public class ReceiverPanel extends JPanel {
 	public ReceiverPanel() {
 
 		setBorder(MyBorderFactory.createMyBorder(" BorderLayout Receiver "));
+		setLayout(new BorderLayout ());
 		
 		btClear.addActionListener(new ActionListener() {
+			
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {

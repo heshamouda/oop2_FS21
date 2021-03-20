@@ -16,7 +16,7 @@ public class App {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		final MainPanel panel = new MainPanel();
-		panel.setPreferredSize(new Dimension(200,250));
+		panel.setPreferredSize(new Dimension(200,250)); //dimension of the panel
 		panel.setDoubleBuffered(true);
 		frame.add(panel);
 		//panel.init();

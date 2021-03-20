@@ -5,30 +5,31 @@ import javax.swing.UIManager;
 
 public class App {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		JFrame frame = new JFrame("Layout Manager");
+		final View view = new View();
+
+		JFrame frame = new JFrame("Waveform Player");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		final MainPanel panel = new MainPanel();
-		panel.setPreferredSize(new Dimension(200,250));
-		panel.setDoubleBuffered(true);
-		frame.add(panel);
-		//panel.init();
+		view.setPreferredSize(new Dimension(800, 600));
+		view.setDoubleBuffered(true);
+
+		frame.add(view);
+		view.init();
 
 		frame.pack();
 		frame.setVisible(true);
 		frame.setResizable(true);
 		frame.setLocationRelativeTo(null);
 
-		
-		panel.setFocusable(true);
-		panel.requestFocus();
+		view.setFocusable(true);
+		view.requestFocus();
 
 	}
 }

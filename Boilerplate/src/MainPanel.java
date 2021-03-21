@@ -1,5 +1,6 @@
 import java.awt.Button;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -10,8 +11,17 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class MainPanel extends JPanel {
-	final JButton colorButton= new JButton("color");
-	final JPanel colorPanel= new JPanel();
+	final JButton colorButton = new JButton("color");
+	final JPanel colorPanel = new JPanel();
+	final Insets insets= new Insets(5,5,5,5);
+	final GridBagConstraints colorButtonConstraints= new GridBagConstraints(0,1,1,1,1.0,1.0,GridBagConstraints.CENTER
+			,GridBagConstraints.BOTH,insets,0,0);
+	
+	final GridBagConstraints colorPanelConstraints= new GridBagConstraints(0,0,1,1,1.0,2.0,GridBagConstraints.CENTER
+			,GridBagConstraints.BOTH, insets,0,0);
+	
+
+
 //
 //	private final Insets insets = new Insets(5, 5, 5, 5);
 //
@@ -23,23 +33,29 @@ public class MainPanel extends JPanel {
 //	 * Run init code here (the view has valid dimensions at this point)
 //	 */
 	public void init() {
-		setLayout(null);
-		add(colorButton);
-		colorButton.setBounds(50, 200, 100,50);
-		add(colorPanel);
-		colorPanel.setBounds(0, 0, 200, 200);
+//setLayout(null);
+//		colorButton.setBounds(50, 200, 100, 50);
+//		colorPanel.setBounds(0, 0, 200, 200);
+		setLayout(new GridBagLayout());
+		add(colorButton, colorButtonConstraints);
+		add(colorPanel, colorPanelConstraints);
 		
-		colorButton.addActionListener(new ActionListener(	) {
-			
+		colorPanel.setMinimumSize(new Dimension(0,200));
+		colorPanel.setPreferredSize(new Dimension(800,600));
+		
+
+		colorButton.addActionListener(new ActionListener() {
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				//Color color= Math.random() > 0.5 ? Color.RED: Color.BLUE;
-				Color color= new Color((float)Math.random(), (float)Math.random(),(float)Math.random(),1.0f);
-				colorPanel.setBackground(color);			 
+				// Color color= Math.random() > 0.5 ? Color.RED: Color.BLUE;
+				Color color = new Color((float) Math.random(), (float) Math.random(), (float) Math.random(), 1.0f);
+				colorPanel.setBackground(color);
+
 			}
 		});
-		colorPanel.setBackground(Color.blue);
+
 //		setLayout(new GridBagLayout());
 //
 //		panel.setBackground(Color.DARK_GRAY);

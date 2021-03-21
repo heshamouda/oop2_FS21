@@ -35,8 +35,7 @@ public class MainPanel extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				Color color= Math.random() > 0.5 ? Color.RED: Color.BLUE;
-				colorPanel.setBackground(color);
-				
+				colorPanel.setBackground(color);				
 			}
 		});
 		colorPanel.setBackground(Color.blue);

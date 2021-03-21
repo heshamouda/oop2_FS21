@@ -19,7 +19,7 @@ public class App {
 		panel.setPreferredSize(new Dimension(200,250)); //dimension of the panel
 		panel.setDoubleBuffered(true);
 		frame.add(panel);
-		//panel.init();
+		panel.init();
 
 		frame.pack();
 		frame.setVisible(true);

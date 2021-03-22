@@ -15,7 +15,28 @@ public class DemoFramework extends JFrame {
 	public DemoFramework() {
 		View view = new View();
 		add(view);
+		view.addMouseMotionListener(new MouseMotionListener() {
+			
+			@Override
+			public void mouseMoved(MouseEvent e) {
+				// TODO Auto-generated method stub
+				System.out.println("x  "+e.getX());
+				
+			}
+			
+			@Override
+			public void mouseDragged(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		}); 
 
+		view.addMouseMotionListener(new MouseMotionAdapter() {
+			public void mouseMoved(MouseEvent e) {
+				System.out.println("x  "+e.getX());
+
+			}
+		});
 		
 
 		pack();

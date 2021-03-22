@@ -25,6 +25,8 @@ public class View extends JPanel {
 		setPreferredSize(new Dimension(600, 400));
 
 	}
+	
+	
 
 	@Override
 	public void paintComponent(Graphics g) {
@@ -53,7 +55,7 @@ abstract class Form {
 
 }
 
-class Rechteck extends Form {
+class Rechteck extends Form implements SimpleTimerListener {
 	public Boolean binRechteck;
 
 	public Rechteck(int x, int y, int breite, int hoehe) {
@@ -63,6 +65,12 @@ class Rechteck extends Form {
 	public void zeichne(Graphics g) {
 		// g.setColor(Color.GREEN);
 		g.drawRect(x, y, breite, hoehe);
+	}
+
+	@Override
+	public void timerAction() {
+		// TODO Auto-generated method stub
+				
 	}
 
 }

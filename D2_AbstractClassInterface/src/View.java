@@ -34,6 +34,7 @@ public class View extends JPanel {
 		rechteck.setColor(g);
 		rechteck.zeichne(g);
 		kreis.zeichne(g);
+		//form.zeichne(g);
 	}
 }
 

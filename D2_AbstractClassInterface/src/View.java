@@ -9,6 +9,8 @@ import java.awt.event.MouseMotionListener;
 
 import javax.swing.JPanel;
 
+
+
 public class View extends JPanel {
 	/**
 	 * 
@@ -16,8 +18,7 @@ public class View extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private Rechteck rechteck = new Rechteck(100, 120, 200, 70);
 	private Kreis kreis = new Kreis(10, 20, 70);
-	//private Form form=  new Form(100, 100, 10, 10);
-	 
+	// private Form form= new Form(100, 100, 10, 10);
 
 	public View() {
 		super(null);
@@ -28,12 +29,10 @@ public class View extends JPanel {
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		
-		
-	
-
+		rechteck.setColor(g);
+		rechteck.zeichne(g);
+		kreis.zeichne(g);
 	}
-
 }
 
 abstract class Form {
@@ -46,11 +45,11 @@ abstract class Form {
 		this.hoehe = hoehe;
 	}
 
-	public abstract void zeichne(Graphics g);
+	public abstract void zeichne(Graphics g); 
 	
-	
-		
-	
+	public void setColor(Graphics g) {
+		g.setColor(Color.black);
+	}
 
 }
 
@@ -62,7 +61,7 @@ class Rechteck extends Form {
 	}
 
 	public void zeichne(Graphics g) {
-		g.setColor(Color.GREEN);
+		// g.setColor(Color.GREEN);
 		g.drawRect(x, y, breite, hoehe);
 	}
 
@@ -76,7 +75,7 @@ class Kreis extends Form {
 	}
 
 	public void zeichne(Graphics g) {
-		g.setColor(Color.RED);
+		g.setColor(Color.BLACK);
 		g.drawOval(x, y, breite, hoehe);
 	}
 }

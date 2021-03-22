@@ -73,6 +73,12 @@ class Rechteck extends Form implements SimpleTimerListener {
 				
 	}
 
+	@Override
+	public void timerAction2() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
 
 class Kreis extends Form {

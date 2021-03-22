@@ -16,7 +16,7 @@ public class View extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private Rechteck rechteck = new Rechteck(100, 120, 200, 70);
 	private Kreis kreis = new Kreis(10, 20, 70);
-	
+	//private Form form=  new Form(100, 100, 10, 10);
 	 
 
 	public View() {
@@ -36,7 +36,7 @@ public class View extends JPanel {
 
 }
 
-class Form {
+abstract class Form {
 	protected int x, y, breite, hoehe;
 
 	public Form(int x, int y, int breite, int hoehe) {
@@ -46,9 +46,7 @@ class Form {
 		this.hoehe = hoehe;
 	}
 
-	public  void zeichne(Graphics g) {
-		
-	}
+	public abstract void zeichne(Graphics g);
 	
 	
 		

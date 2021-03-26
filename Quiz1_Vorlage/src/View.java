@@ -30,7 +30,7 @@ public class View extends JPanel {
 	 */
 	public View() {
 		setBorder(MyBorderFactory.createMyBorder(" View "));
-		//3
+		 
 		setLayout(new GridLayout(2,1,5,5));
 
 		add(transPanel);

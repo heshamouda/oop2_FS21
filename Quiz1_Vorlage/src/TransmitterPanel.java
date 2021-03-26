@@ -46,11 +46,8 @@ public class TransmitterPanel extends JPanel {
 
 		setLayout(new GridBagLayout());
 
-		
-
 		cbAnrede.addItem("Frau");
 		cbAnrede.addItem("Herr");
-
 
 		add(new JLabel("Anrede"), new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0, GridBagConstraints.WEST,
 				GridBagConstraints.NONE, new Insets(10, 10, 10, 10), 0, 0));

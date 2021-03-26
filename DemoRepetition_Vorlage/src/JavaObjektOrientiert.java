@@ -7,7 +7,7 @@ import java.awt.event.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-class View extends JPanel{
+class View extends JPanel implements MouseMotionListener { //2. Schnittstelle imlementieren  
 
 	private TraceV7 trace = new TraceV7(this);
 	private static final long serialVersionUID = 1L;
@@ -18,7 +18,7 @@ class View extends JPanel{
 	public View() {
 		super(null);
 		trace.constructorCall();
-		
+		addMouseMotionListener(this);//-->2.
 
 	}
 
@@ -29,28 +29,51 @@ class View extends JPanel{
 		kreis.zeichne(g);
 	}
 
+	@Override
+	public void mouseDragged(MouseEvent e) {
+		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public void mouseMoved(MouseEvent e) {
+		System.out.println("x Position : " + e.getX() + " y Position : " + e.getY());
+
+	}
 
 }
 
+class Form { //1. Klasse Form definieren ud Quadrat/Kreis ableiten
+	protected int x, y, d;
 
-
-class Quadrat  {
-	private TraceV7 trace = new TraceV7(this);
-	private int x, y, d;
-
-	public Quadrat(int x, int y, int d) {
-		
-		trace.constructorCall();
+	public Form(int x, int y, int d) {
 		this.x = x;
 		this.y = y;
 		this.d = d;
 	}
 
 	public void zeichne(Graphics g) {
+		// macht auf dieser ebene erst mal nichts
+	}
+
+}
+
+class Quadrat extends Form {
+	private TraceV7 trace = new TraceV7(this);
+	private int x, y, b;
+
+	public Quadrat(int x, int y, int d) {
+		super(x, y, d);
+		trace.constructorCall();
+//		this.x = x;
+//		this.y = y;
+//		this.b = b;
+	}
+
+	public void zeichne(Graphics g) {
 		trace.methodeCall();
 		g.drawRect(x - d / 2, y - d / 2, d, d);
-		g.drawString("Flaeche = " + calcFlaeche(d), x - 50, y);
+		g.drawString("Flaeche = " + calcFlaeche(d), x-50, y);
 	}
 
 	public int calcFlaeche(int breite) {
@@ -59,26 +82,26 @@ class Quadrat  {
 
 }
 
-class Kreis {
+class Kreis extends Form {
 	private TraceV7 trace = new TraceV7(this);
 	private int x, y, d;
 
 	public Kreis(int x, int y, int d) {
-		
+		super(x, y, d);
 		trace.constructorCall();
-		this.x = x;
-		this.y = y;
-		this.d = d;
+//		this.x = x;
+//		this.y = y;
+//		this.d = d;
 	}
 
 	public void zeichne(Graphics g) {
 		trace.methodeCall();
 		g.drawOval(x - d / 2, y - d / 2, d, d);
-		g.drawString("Flaeche = " + calcFlaeche(d), x - 50, y);
+		g.drawString("Flaeche = " + calcFlaeche(d), x-50, y);
 	}
 
 	public int calcFlaeche(int durchmesser) {
-		return (int) (Math.PI * durchmesser * durchmesser / 4.0);
+		return (int)(Math.PI * durchmesser * durchmesser / 4.0);
 	}
 
 }

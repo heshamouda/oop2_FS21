@@ -18,7 +18,7 @@ public class GridBagLayoutPanel extends JPanel {
 	private JPanel panel2 = new JPanel();
 	private JPanel panel3 = new JPanel();
 	
-
+//
 	public GridBagLayoutPanel() {
 		//super(new GridBagLayout());
 		setLayout(new GridBagLayout());
@@ -31,12 +31,12 @@ public class GridBagLayoutPanel extends JPanel {
 		panel3.setBorder(MyBorderFactory.createMyBorder(" Panel 3 "));
 
 		add(panel1, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.NONE,
+				new Insets(50,50,50,50), 0, 0));
+
+		add(panel2, new GridBagConstraints(1, 0, 1, 1, 0.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.VERTICAL,
 				new Insets(10, 10, 10, 10), 0, 0));
 
-		add(panel2, new GridBagConstraints(1, 0, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.NONE,
-				new Insets(10, 10, 10, 10), 0, 0));
-
-		add(panel3, new GridBagConstraints(0, 1, 2, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.NONE,
+		add(panel3, new GridBagConstraints(0, 1, 2, 1, 1.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH,
 				new Insets(10, 10, 10, 10), 0, 0));
 
 		

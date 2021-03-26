@@ -1,3 +1,5 @@
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -9,7 +11,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
-public class GUIFramework extends JFrame {
+public class GUIFramework extends JFrame implements ActionListener{
 
 	private static final long serialVersionUID = 1L;
 	private TopPanel view;
@@ -17,12 +19,39 @@ public class GUIFramework extends JFrame {
 	JMenu fileMenu, anzeigeMenu;
 	JMenuItem openItem, saveItem, drehenItem, zoomItem;
 
-	public GUIFramework() {
+	public GUIFramework() { //constructor
 		// Deklaration
 		view = new TopPanel();
 		add(view);
 		
-
+		fileMenu= new JMenu("File");
+		openItem= new JMenuItem("Open");
+		fileMenu.add(openItem);
+		openItem.addActionListener(this);
+		saveItem= new JMenuItem("Save");
+		fileMenu.add(saveItem);
+		saveItem.addActionListener(this);
+		
+		anzeigeMenu= new JMenu("View");
+		drehenItem= new JMenuItem("Rotate");
+		zoomItem= new JMenuItem("Zoom");
+		anzeigeMenu.add(drehenItem);
+//		drehenItem.addActionListener(this);
+		drehenItem.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				System.out.println("rotate the view");
+			}
+		});
+		anzeigeMenu.add(zoomItem);
+//		zoomItem.addActionListener(this);
+		
+		wholeMenuBar.add(fileMenu);
+		wholeMenuBar.add(anzeigeMenu);
+		
+		setJMenuBar(wholeMenuBar); 
 	}
 
 	public static void main(String[] args) {
@@ -42,7 +71,14 @@ public class GUIFramework extends JFrame {
 		frame.setResizable(true);
 		frame.setVisible(true);
 		frame.setLocationRelativeTo(null);
-
 	}
 
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		if (e.getSource()==openItem) {
+			System.out.println("File open");			
+		}
+		
+	}
 }

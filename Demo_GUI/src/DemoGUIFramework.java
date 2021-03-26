@@ -36,7 +36,7 @@ public class DemoGUIFramework extends JFrame implements ActionListener {
 		
 
 		// Menubar setzen
-		//setJMenuBar(wholeMenuBar);
+		setJMenuBar(wholeMenuBar);
 
 	}
 

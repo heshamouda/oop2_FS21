@@ -26,7 +26,7 @@ public class BasicLayoutPanel extends JPanel {
 	public BasicLayoutPanel() {
 
 //		setLayout(new FlowLayout(FlowLayout.CENTER, 50, 25));
-//		setLayout(new BorderLayout(20,5));
+//		setLayout(new BorderLayout(20,50));
 		setLayout(new GridLayout(2, 3, 20, 20));
 		setBorder(MyBorderFactory.createMyBorder("BasicLayoutPanel"));
 //		bt1.setFont( new Font("Serif", Font.BOLD, 30) );

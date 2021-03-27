@@ -10,13 +10,15 @@ import javax.swing.JPanel;
 
 public class View extends JPanel {
 
-	// load an instance from controller in the panel
+	// load an instance from controller in the view
 
 	private Controller controller;
 
 	public void setController(Controller controller) {
 		this.controller = controller;
 	}
+
+	
 
 	private JLabel lbDice = new JLabel("-");
 	private JButton btRollButton = new JButton("Roll");
@@ -36,11 +38,13 @@ public class View extends JPanel {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				controller.roll();
-				
+				controller.roll();				
 			}
 		});
 
 	}
 
+	public void update(Model model) {
+		lbDice.setText(model.dice+ "");			
+	}
 }

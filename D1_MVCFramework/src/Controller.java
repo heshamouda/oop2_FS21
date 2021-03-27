@@ -4,7 +4,7 @@ public class Controller {
 	private View view;
 
 	public Controller(Model model) {
-		trace.constructorCall();
+		trace.methodeCall();
 		this.model = model;
 	}
 
@@ -13,8 +13,7 @@ public class Controller {
 		model.setData(stInfo);
 		view.tf1.setText("");
 		view.tf1.requestFocus();
-		
-		//System.out.println(model.getData()); //zusätzliche Ausgabe nur durch Controler angetriggert
+		System.out.println(model.getData());
 	}
 
 	public void setView(View view) {

@@ -36,6 +36,7 @@ public class Observable {
 	 * @see #notifyObservers()
 	 */
 	protected synchronized void clearChanged() {
+
 		changed = false;
 	}
 
@@ -44,7 +45,7 @@ public class Observable {
 	 *
 	 * @return number of Observers for this
 	 */
-	public synchronized int countObservers() {
+	public synchronized int countOservers() {
 		return observers.size();
 	}
 
@@ -62,6 +63,7 @@ public class Observable {
 	 */
 	public synchronized void deleteObservers() {
 		observers.clear();
+		;
 	}
 
 	/**
@@ -95,8 +97,10 @@ public class Observable {
 	 */
 	@SuppressWarnings("unchecked")
 	public void notifyObservers(Object obj) {
-		if (!hasChanged())
+		if (!hasChanged()) {
 			return;
+		}
+
 		// Create clone inside monitor, as that is relatively fast and still
 		// important to keep threadsafe, but update observers outside of the
 		// lock since update() can call arbitrary code.
@@ -106,9 +110,10 @@ public class Observable {
 		}
 		int i = s.size();
 		Iterator<Observer> iter = s.iterator();
-		while (--i >= 0)
+		while (--i >= 0) {
 			iter.next().update(this, obj);
-		clearChanged();
+			clearChanged();
+		}
 	}
 
 	/**

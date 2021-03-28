@@ -38,7 +38,7 @@ public class ParameterPanel extends JPanel implements ActionListener, ItemListen
 		trace.constructorCall();
 		setLayout(new GridBagLayout());
 		setBorder(MyBorderFactory.createMyBorder(" SignalParameter "));
-
+ 
 	}
 
 	/**

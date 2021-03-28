@@ -24,6 +24,7 @@ public class ParameterPanel extends JPanel implements ActionListener, ItemListen
 	public JTextField tfFreq = new JTextField("1.0");
 	public JTextField tfHarm = new JTextField("10");
 	public JComboBox<String> cbForm = new JComboBox<String>();
+	Insets insets = new Insets(10, 10, 10, 10);
 
 	/**
 	 * <pre>
@@ -39,6 +40,31 @@ public class ParameterPanel extends JPanel implements ActionListener, ItemListen
 		setLayout(new GridBagLayout());
 		setBorder(MyBorderFactory.createMyBorder(" SignalParameter "));
  
+		this.controller = controller;
+		cbForm.addItem("Dreieck");
+		cbForm.addItem("Rechteck");
+		cbForm.addItem("Zaegeform");
+		
+		
+		add(new JLabel("Amplitude"), new GridBagConstraints(0 , 0, 1, 1, 0.0, 0.0, 
+				GridBagConstraints.WEST, GridBagConstraints.NONE,  insets, 0, 0));
+		add(tfAmp, new GridBagConstraints(1, 0, 1, 1, 1.0, 0.0, 
+				GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, insets, 0, 0));
+		
+		add(new JLabel("Frequenz"), new GridBagConstraints(0 , 1, 1, 1, 0.0, 0.0, 
+				GridBagConstraints.WEST, GridBagConstraints.NONE,  insets, 0, 0));
+		add(tfFreq, new GridBagConstraints(1, 1, 1, 1, 1.0, 0.0, 
+				GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, insets, 0, 0));
+		
+		add(new JLabel("Wellenform"), new GridBagConstraints(0 , 2, 1, 1, 0.0, 0.0, 
+				GridBagConstraints.WEST, GridBagConstraints.NONE,  insets, 0, 0));
+		add(cbForm, new GridBagConstraints(1, 2, 1, 1, 1.0, 0.0, 
+				GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, insets, 0, 0));
+		
+		add(new JLabel("Anzahl harmonische:"), new GridBagConstraints(0 , 3, 1, 1, 0.0, 0.0, 
+				GridBagConstraints.WEST, GridBagConstraints.NONE,  insets, 0, 0));
+		add(tfHarm, new GridBagConstraints(1, 3, 1, 1, 1.0, 0.0, 
+				GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, insets, 0, 0));
 	}
 
 	/**
@@ -50,6 +76,8 @@ public class ParameterPanel extends JPanel implements ActionListener, ItemListen
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		trace.eventCall();
+		controller.btBerechne();
+		repaint();
 
 	}
 
@@ -62,6 +90,8 @@ public class ParameterPanel extends JPanel implements ActionListener, ItemListen
 	@Override
 	public void itemStateChanged(ItemEvent e) {
 		trace.eventCall();
+		controller.btBerechne();
+		repaint();
 
 	}
 }

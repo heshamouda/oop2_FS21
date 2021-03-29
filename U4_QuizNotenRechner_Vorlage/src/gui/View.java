@@ -16,6 +16,7 @@ public class View extends JPanel implements Observer {
 	public SmileyPanel smileyPanel = new SmileyPanel();
 	public InputPanel inputPanel;
 	public ButtonPanel buttonPanel;
+	Insets insets = new Insets(10, 10, 10, 10);
 
 	/**
 	 * -erzeugt und platziert die drei Panels im GridbagLayout nach Skizze
@@ -24,8 +25,19 @@ public class View extends JPanel implements Observer {
 		super(new GridBagLayout());
 		trace.constructorCall();
 		setBorder(MyBorderFactory.createMyBorder(" ViewPanel "));
-
 		
+		smileyPanel = new SmileyPanel();
+		inputPanel = new InputPanel(controller);
+		buttonPanel = new ButtonPanel(controller);
+		
+		add(inputPanel,new GridBagConstraints(0, 0, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER, 
+				GridBagConstraints.BOTH, insets, 0, 0));
+		
+		add(smileyPanel, new GridBagConstraints(1, 0, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, 
+				GridBagConstraints.NONE, insets, 0, 0));
+		
+		add(buttonPanel, new GridBagConstraints(0, 1, 2, 1, 1.0, 0.0, GridBagConstraints.CENTER, 
+				GridBagConstraints.HORIZONTAL, insets, 0, 0));	
 	}
 
 	/**

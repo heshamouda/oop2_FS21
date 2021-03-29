@@ -40,13 +40,14 @@ public class InputPanel extends JPanel implements ActionListener {
 		
 		add(tfAnzahlPunkte, new GridBagConstraints(1, 0, 1, 1, 1.0, 0.0, GridBagConstraints.WEST,
 				GridBagConstraints.HORIZONTAL, insets, 0, 0));	
+		tfAnzahlPunkte.addActionListener(this);
 		
 		
 		add(new JLabel("Max Punktzahl:"), new GridBagConstraints(0, 1, 1, 1, 0.0, 0.0, GridBagConstraints.WEST,
 				GridBagConstraints.NONE, insets, 0, 0));
 		add(tfMaxPunkte, new GridBagConstraints(1, 1, 1, 1, 1.0, 0.0, GridBagConstraints.WEST,
 				GridBagConstraints.HORIZONTAL, insets, 0, 0));		
-		
+		tfMaxPunkte.addActionListener(this);
 		
 		add(new JLabel("Note"), new GridBagConstraints(0, 2, 1, 1, 0.0, 0.0, GridBagConstraints.WEST,
 				GridBagConstraints.NONE, insets, 0, 0));

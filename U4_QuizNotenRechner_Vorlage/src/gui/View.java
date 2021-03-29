@@ -47,6 +47,8 @@ public class View extends JPanel implements Observer {
 	 */
 	public void update(Observable obs, Object obj) {
 		trace.methodeCall();
+		inputPanel.update(obs, obj);
+		smileyPanel.update(obs, obj);
 		
 	}
 }

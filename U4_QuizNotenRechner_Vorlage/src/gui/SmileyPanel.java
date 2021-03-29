@@ -47,7 +47,7 @@ public class SmileyPanel extends JPanel implements SimpleTimerListener {
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		trace.paintCall();
-		g.drawImage(imSmiley,(int) xNeu, 10, this);
+		g.drawImage(imSmiley,(int) xNeu, 10, null);
 		g.drawLine(200, 300, 200, 5);
 
 	}
@@ -62,7 +62,7 @@ public class SmileyPanel extends JPanel implements SimpleTimerListener {
 		if (obs instanceof Model) {
 			Model model = (Model) obs;
 			double note = model.getData();
-			x= (-note * 180 + 468);
+			x= (int)(-note * 180 + 468);
 			
 		}
 

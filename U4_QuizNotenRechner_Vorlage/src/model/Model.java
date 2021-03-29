@@ -17,7 +17,7 @@ public class Model extends Observable {
 	 */
 	public double getData() {
 		trace.methodeCall();
-		return 0;
+		return note;
 	}
 
 	/**

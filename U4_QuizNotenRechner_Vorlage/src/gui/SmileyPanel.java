@@ -61,6 +61,8 @@ public class SmileyPanel extends JPanel implements SimpleTimerListener {
 		trace.methodeCall(); 
 		if (obs instanceof Model) {
 			Model model = (Model) obs;
+			double note = model.getData();
+			x= (-note * 180 + 468);
 			
 		}
 
@@ -75,6 +77,8 @@ public class SmileyPanel extends JPanel implements SimpleTimerListener {
 	@Override
 	public void timerAction() {
 		// Bild soll gefiltert zur neuen Position laufen
+		xNeu = (0.1* x + 0.9 * xNeu);
+		repaint();
 
 	}
 }

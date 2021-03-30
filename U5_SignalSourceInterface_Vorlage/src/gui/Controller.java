@@ -23,7 +23,7 @@ public class Controller {
 	 * </pre>
 	 */
 	public void btRefresh() {
-		
+		model.triggerSignalGenerator(Double.parseDouble(view.parameterPanel.tfVarianz.getText()));
 		
 	}
 

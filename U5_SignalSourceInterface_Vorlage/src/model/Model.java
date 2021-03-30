@@ -18,8 +18,7 @@ public class Model extends Observable implements DataListener {
 	 * </pre>
 	 */
 	public Model() {
-
-		
+		signalSource = new SignalSource(this);		
 	}
 
 	public double getMaxValue() {
@@ -53,6 +52,7 @@ public class Model extends Observable implements DataListener {
 	 * </pre>
 	 */
 	public void triggerSignalGenerator(double varianz) {
+		signalSource.generateSignal(varianz);
 		
 	}
 
@@ -62,8 +62,21 @@ public class Model extends Observable implements DataListener {
 	 * </pre>
 	 */
 	public void calcFilterConstant(int slValue) {
+		switch (slValue) {
+		case 1:
+			filtConst = 0.3;
+			break;
+		case 2:
+			filtConst =0.6;
+			break;
+		case 3:
+			filtConst = 0.8;
+			break;
 
-		
+		default:
+			filtConst = 0.8;
+			break;
+		}	
 
 	}
 
@@ -77,7 +90,26 @@ public class Model extends Observable implements DataListener {
 	 */
 	@Override
 	public void process(double[] data) {
+		double max = 0.0;
+		double min = 0.0;
+		meanPower = 0.0;
 		
+		signal = data;
+		filteredSignal = new double[data.length];
+		
+		for (int i = 0; i < data.length; i++) {
+			if (data [i] > max) {
+				max = data[i];
+				}
+			if (data[i] < min) {
+				min = data[i];
+			}
+			
+			meanPower +=1.0/data.length * Math.pow(data[i], 2.0);
+		}
+		
+		maxValue = max;
+		minValue = min;		
 	}
 
 	/**
@@ -86,8 +118,8 @@ public class Model extends Observable implements DataListener {
 	 * </pre>
 	 */
 	public void notifyObservers() {
-
 		
+		 setChanged();
+		 super.notifyObservers();
 	}
-
 }

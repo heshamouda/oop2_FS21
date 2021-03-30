@@ -23,7 +23,7 @@ public class View extends JPanel implements Observer {
 		
 		parameterPanel = new ParameterPanel(controller);
 		
-		add(plotPanel, new GridBagConstraints(0, 0, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+		add(plotPanel, new GridBagConstraints(0, 0, 2, 1, 1.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH,
 				insets, 0, 0));
 
 		add(parameterPanel, new GridBagConstraints(0, 1, 1, 1, 1.0, 1.0, GridBagConstraints.CENTER,

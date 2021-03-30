@@ -1,7 +1,12 @@
 package signalsource;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
 import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+
 import gui.Controller;
 import gui.View;
 import model.Model;
@@ -10,25 +15,20 @@ import util.TraceV5;
 
 public class SignalSourceApplikation extends JFrame {
 	private TraceV5 trace = new TraceV5(this);
+	
 
+	
 	public void init() {
 		trace.methodeCall();
-		// --hier Model/View/Controller Pattern erzeugen und view hinzufügen
-
 		Model model = new Model();
-		Controller controller= new Controller(model);
+		Controller controller = new Controller(model);
 		View view = new View(controller);
-		
-		//add view		
 		controller.setView(view);
+
 		model.addObserver(view);
 		add(view);
 		
 		
-		
-		
-		// ---------------------
-
 		pack();
 		setMinimumSize(getPreferredSize());
 		System.out.println(getPreferredSize());

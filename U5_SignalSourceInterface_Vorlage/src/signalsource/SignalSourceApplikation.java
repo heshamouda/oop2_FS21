@@ -15,6 +15,15 @@ public class SignalSourceApplikation extends JFrame {
 		trace.methodeCall();
 		// --hier Model/View/Controller Pattern erzeugen und view hinzufügen
 
+		Model model = new Model();
+		Controller controller= new Controller(model);
+		View view = new View(controller);
+		
+		//add view		
+		controller.setView(view);
+		model.addObserver(view);
+		add(view);
+		
 		
 		
 		

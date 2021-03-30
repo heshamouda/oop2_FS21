@@ -18,11 +18,10 @@ import model.Model;
 import util.MyBorderFactory;
 import util.Observable;
 
-public class PlotPanel extends JPanel  {
-	
+public class PlotPanel extends JPanel {
+
 	private JFreeChart chart = ChartFactory.createXYLineChart("Signal", "Samples", "Value", null,
 			PlotOrientation.VERTICAL, false, false, false);
-	
 
 	public PlotPanel() {
 		super(new BorderLayout());
@@ -53,8 +52,6 @@ public class PlotPanel extends JPanel  {
 		setPreferredSize(new Dimension(800, 450));
 
 	}
-
-
 
 	private void setData(double[] y, double[] filty) {
 		XYSeries series1 = new XYSeries("XYGraph");

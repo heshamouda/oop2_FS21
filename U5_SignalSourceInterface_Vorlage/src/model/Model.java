@@ -24,17 +24,17 @@ public class Model extends Observable implements DataListener {
 
 	public double getMaxValue() {
 
-		return 0;
+		return maxValue;
 	}
 
 	public double getMinValue() {
 
-		return 0;
+		return minValue;
 	}
 
 	public double getMeanPower() {
 
-		return 0;
+		return meanPower;
 	}
 
 	public double[] getSignal() {

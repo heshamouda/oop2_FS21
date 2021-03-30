@@ -13,7 +13,7 @@ public class SignalSource {
 	 * </pre>
 	 */
 	public SignalSource(DataListener dataListener) {
-		
+		this.dataListener = dataListener;		
 
 	}
 
@@ -25,7 +25,13 @@ public class SignalSource {
 	 * </pre>
 	 */
 	public void generateSignal(double varianz) {
-
+		Random r = new Random();
 		
+		for (int i = 0; i < buffer.length; i++) {
+			buffer[i] = r.nextGaussian() * Math.sqrt(varianz);		
+			
+		}
+		
+		dataListener.process(buffer);		
 	}
 }

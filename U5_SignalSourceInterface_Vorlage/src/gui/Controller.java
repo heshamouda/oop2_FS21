@@ -33,7 +33,6 @@ public class Controller {
 	 * </pre>
 	 */
 	public void slValue() {
-		
+		model.calcFilterConstant(view.parameterPanel.slFilter.getValue());
 	}
-
 }

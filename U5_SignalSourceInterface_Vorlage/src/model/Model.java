@@ -1,6 +1,7 @@
 package model;
 
 import util.Observable;
+import util.TraceV5;
 
 public class Model extends Observable implements DataListener {
 
@@ -75,7 +76,7 @@ public class Model extends Observable implements DataListener {
 
 		default:
 			filtConst = 0.8;
-			break;
+			 
 		}	
 	}
 
@@ -104,11 +105,18 @@ public class Model extends Observable implements DataListener {
 				min = data[i];
 			}
 			
-			meanPower +=1.0/data.length * Math.pow(data[i], 2.0);
+			meanPower += 1.0 / data.length * Math.pow(data[i], 2.0);
 		}
 		
 		maxValue = max;
-		minValue = min;		
+		minValue = min;	
+		
+		filteredSignal[0] = data[0];
+		for (int n = 1; n < data.length; n++) {
+			filteredSignal[n] = filtConst * filteredSignal[n - 1] + (1 - filtConst) * data[n];
+		}
+		notifyObservers();
+		
 	}
 
 	/**

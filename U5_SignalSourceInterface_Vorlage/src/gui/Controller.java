@@ -19,12 +19,11 @@ public class Controller {
 
 	/**
 	 * <pre>
-	 * - triggert die Signalberechnung im Model mit entsprechendem Parameter
+	 * - triggert die Signalberechnung mit entsprechendem Parameter
 	 * </pre>
 	 */
 	public void btRefresh() {
 		model.triggerSignalGenerator(Double.parseDouble(view.parameterPanel.tfVarianz.getText()));
-		
 	}
 
 	/**
@@ -35,4 +34,5 @@ public class Controller {
 	public void slValue() {
 		model.calcFilterConstant(view.parameterPanel.slFilter.getValue());
 	}
+
 }

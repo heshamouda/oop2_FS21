@@ -77,7 +77,6 @@ public class Model extends Observable implements DataListener {
 			filtConst = 0.8;
 			break;
 		}	
-
 	}
 
 	/**

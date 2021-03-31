@@ -16,9 +16,10 @@ public class Klarinette {
 	 * </pre>
 	 */
 	public Klarinette() {
-
 		
-
+		bild =  Utility.loadResourceImage("clarinet.jpg", 300, 300);
+		
+		audioClip = Utility.loadAudioClip("adagio.wav");
 	}
 
 	/**
@@ -29,7 +30,10 @@ public class Klarinette {
 	 * </pre>
 	 */
 	public void spieltschoen(JTextField tf, BildPanel bp) {
-		
+		 tf = new JTextField ("");
+		 bp = new BildPanel();
+		 audioClip.setFramePosition(0);
+		audioClip.start();
 
 	}
 

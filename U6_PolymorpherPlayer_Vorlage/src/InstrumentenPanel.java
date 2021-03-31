@@ -7,6 +7,7 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -21,9 +22,9 @@ class BildPanel extends JPanel {
 	 * </pre>
 	 */
 	public BildPanel() {
-		
-
-	}
+		setLayout(null);		 
+		setPreferredSize(new Dimension(300, 300));
+		 }
 
 	/**
 	 * <pre>

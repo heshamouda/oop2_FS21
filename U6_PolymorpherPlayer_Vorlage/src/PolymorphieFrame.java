@@ -5,10 +5,7 @@ import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
 
 
-	
-
-
-public class PolymorphieFrame extends JFrame {
+	public class PolymorphieFrame extends JFrame {
 	private InstrumentenPanel view;
 
 	public PolymorphieFrame() {

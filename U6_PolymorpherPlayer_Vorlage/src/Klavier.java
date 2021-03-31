@@ -2,7 +2,7 @@ import java.awt.Image;
 import javax.sound.sampled.Clip;
 import javax.swing.JTextField;
 
-public class Klavier {
+public class Klavier extends MusikInstrument{
 
 	private String name = "Klavier";
 
@@ -35,6 +35,17 @@ public class Klavier {
 		audioClip.setFramePosition(0);
 		audioClip.start();
 
+	}
+	
+
+
+	@Override
+	public void spielen(JTextField tf, BildPanel bp) {
+		 
+		tf.setText(name + " spielt mehrstimmig");
+		bp.bild = bild;
+		audioClip.setFramePosition(0);
+		audioClip.start();
 	}
 
 }

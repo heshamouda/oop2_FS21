@@ -1,5 +1,6 @@
 import java.awt.Image;
 import javax.sound.sampled.Clip;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 public class Klarinette {
@@ -17,9 +18,9 @@ public class Klarinette {
 	 */
 	public Klarinette() {
 		
-		bild =  Utility.loadResourceImage("clarinet.jpg", 300, 300);
+		this.bild =  Utility.loadResourceImage("clarinet.jpg", 300, 300);
 		
-		audioClip = Utility.loadAudioClip("adagio.wav");
+		this.audioClip = Utility.loadAudioClip("adagio.wav");
 	}
 
 	/**
@@ -30,11 +31,11 @@ public class Klarinette {
 	 * </pre>
 	 */
 	public void spieltschoen(JTextField tf, BildPanel bp) {
-		 tf = new JTextField ("spieltschoen"+ name);
-		 bp = new BildPanel();
-		 audioClip.setFramePosition(0);
+		 tf.setText("spieltschoen"+ name);
+		 bp.add(tf);
+		  
+		 audioClip.setFramePosition(1);
 		 audioClip.start();
-
 	}
 
 }

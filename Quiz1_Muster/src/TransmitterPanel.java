@@ -1,3 +1,4 @@
+
 // Ich bestaetige, dass ich diese Pruefung selbstaendig geloest habe.
 // Ich weiss, dass bei Zuwiderhandlung die Note 1 erteilt wird.
 //
@@ -23,7 +24,6 @@ import util.MyBorderFactory;
 public class TransmitterPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 
-
 	public JTextField tfName = new JTextField(2);
 	public JTextArea taKommentar = new JTextArea(10, 30);
 	public JButton btSenden = new JButton("Senden");
@@ -41,16 +41,13 @@ public class TransmitterPanel extends JPanel {
 	 * </pre>
 	 */
 	public TransmitterPanel(ReceiverPanel receivPanel) {
-		//16
+		// 16
 		setBorder(MyBorderFactory.createMyBorder(" GridBagLayout Transmitter "));
 
 		setLayout(new GridBagLayout());
 
-		
-
 		cbAnrede.addItem("Frau");
 		cbAnrede.addItem("Herr");
-
 
 		add(new JLabel("Anrede"), new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0, GridBagConstraints.WEST,
 				GridBagConstraints.NONE, new Insets(10, 10, 10, 10), 0, 0));

@@ -29,27 +29,22 @@ public class Quiz1Framework extends JFrame implements ActionListener {
 		view = new View();
 		add(view);
 
-		// ToDo hier: Menu nach Aufgabenblatt erstellen und beleben
-		
-		//wholeMenuBar.add(fileMenu);
-		fileMenu= new JMenu("Datei");
-		exitItem= new JMenuItem("Close");
+		fileMenu = new JMenu("Datei");
+		exitItem = new JMenuItem("Close");
+
 		fileMenu.add(exitItem);
-		exitItem.addActionListener(this);
+		exitItem.addActionListener(this); // close as action listener
+
 		wholeMenuBar.add(fileMenu);
-		 //set Menubar
+
+		// Menubar setzen
 		setJMenuBar(wholeMenuBar);
 	}
 
-	/**
-	 * <pre>
-	 * - schliesst Anwendung
-	 * </pre>
-	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		 System.exit(1);
-
+		// TODO Auto-generated method stub
+		System.exit(1);
 	}
 
 	public static void main(String[] args) {

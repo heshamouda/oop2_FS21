@@ -1,3 +1,4 @@
+
 // Ich bestaetige, dass ich diese Pruefung selbstaendig geloest habe.
 // Ich weiss, dass bei Zuwiderhandlung die Note 1 erteilt wird.
 //
@@ -14,44 +15,43 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
-public class Quiz1Framework extends JFrame  implements ActionListener{
+public class Quiz1Framework extends JFrame implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 	private View view;
-	
+
 	JMenuBar wholeMenuBar = new JMenuBar();
 	JMenu fileMenu;
 	JMenuItem exitItem;
 
 	public Quiz1Framework() {
-		//7P
+		// 7P
 		view = new View();
 		add(view);
 
-		//ToDo hier: Menu nach Aufgabenblatt erstellen und beleben 
+		// ToDo hier: Menu nach Aufgabenblatt erstellen und beleben
 		fileMenu = new JMenu("Datei");
 		exitItem = new JMenuItem("Close");
-		
+
 		fileMenu.add(exitItem);
 		exitItem.addActionListener(this);
-		
-		
+
 		wholeMenuBar.add(fileMenu);
-			
+
 		// Menubar setzen
 		setJMenuBar(wholeMenuBar);
 
 	}
-	
+
 	/**
 	 * <pre>
-	 * - schliesst Anwendung 
+	 * - schliesst Anwendung
 	 * </pre>
 	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		System.exit(1);
-		
+
 	}
 
 	public static void main(String[] args) {
@@ -72,7 +72,5 @@ public class Quiz1Framework extends JFrame  implements ActionListener{
 		frame.setVisible(true);
 		frame.setLocationRelativeTo(null);
 	}
-
-	
 
 }

@@ -59,6 +59,11 @@ public class PlotPanel extends JPanel {
 		}
 	}
 
+	/**
+	 * - holt sich die aktuellen Daten aus Modell zum update (repaint)
+	 * @param obs
+	 * @param obj
+	 */
 	public void update(Observable obs, Object obj) {
 		trace.methodeCall();
 		if (obs instanceof Model) {
@@ -66,5 +71,7 @@ public class PlotPanel extends JPanel {
 			signal = model.getSignal();
 			repaint();
 		}
+	
 	}
 }
+

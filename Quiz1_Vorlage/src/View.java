@@ -30,13 +30,13 @@ public class View extends JPanel {
 	 */
 	public View() {
 		setBorder(MyBorderFactory.createMyBorder(" View "));
-		setLayout(new GridBagLayout());
-		add(transPanel, new GridBagConstraints(0, 0, 1, 1, 1.0, 1.0, GridBagConstraints.WEST,
-				GridBagConstraints.BOTH, new Insets(5, 5, 5, 5), 0, 0));
-		
-		add(receivPanel, new GridBagConstraints(0, 1, 2, 1, 1.0, 1.0, GridBagConstraints.CENTER,
-				GridBagConstraints.BOTH, new Insets(5, 5, 5, 5), 0, 0));
-		
+		 
+		setLayout(new GridLayout(2,1,5,5));
+
+		add(transPanel);
+
+		add(receivPanel);
+
 		
 
 	}

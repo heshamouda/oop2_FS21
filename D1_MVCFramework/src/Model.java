@@ -1,7 +1,6 @@
 
-
 public class Model extends Observable {
-	private TraceV8 trace = new TraceV8(this);
+	public TraceV8 trace = new TraceV8(this);
 	private String data = "";
 
 	public Model() {
@@ -13,12 +12,12 @@ public class Model extends Observable {
 		this.data = data.toUpperCase();
 		notifyObservers();
 	}
-
+	
 	public String getData() {
 		trace.methodeCall();
 		return data;
 	}
-
+	
 	public void notifyObservers() {
 		trace.methodeCall();
 		setChanged();

@@ -24,10 +24,11 @@ public class FourierPanelFrame extends JFrame {
 		View view = new View(controller);
 		controller.setView(view);
 		model.addObserver(view);
+		
 		frame.add(view);
 		frame.pack();
 		frame.setMinimumSize(frame.getPreferredSize());
-		frame.setTitle("|FHNW|EIT|OOP|MVC-Fourier-Panel|");
+		frame.setTitle("|FHNW|EIT|OOP|MVC Fourier-Panel|");
 		frame.setResizable(true);
 		frame.setVisible(true);
 		frame.setLocationRelativeTo(null);

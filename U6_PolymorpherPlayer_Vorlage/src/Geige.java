@@ -2,15 +2,13 @@ import java.awt.Image;
 import javax.sound.sampled.Clip;
 import javax.swing.JTextField;
 
-
 public class Geige {
-	
+
 	private String name = "Geige";
-	 
-	
+
 	private Image bild;
 	private Clip audioClip;
-	
+
 	/**
 	 * <pre>
 	 * - laedt Bild mit Utility.loadResourceImage("violin.jpg",300,300);
@@ -18,12 +16,11 @@ public class Geige {
 	 * </pre>
 	 */
 	public Geige() {
-		
-		
-		
-		
+		bild = Utility.loadResourceImage("violin.jpg", 300, 300);
+		audioClip = Utility.loadAudioClip("schindler.wav");
+
 	}
-	
+
 	/**
 	 * <pre>
 	 * - setzt Textfeld mit Namen und Eigenschaft des Instruments (Name der Methode) 
@@ -31,16 +28,11 @@ public class Geige {
 	 * - spielt audioClip mit .setFramePosition und .start
 	 * </pre>
 	 */
-	public void spieltleise(JTextField tf,BildPanel bp) {
-		
-		
-	}
-	
-	
+	public void spieltleise(JTextField tf, BildPanel bp) {
+		tf = new JTextField("spieltleisw" + name);
+		bp = new BildPanel();
+		audioClip.setFramePosition(0);
+		audioClip.start();
 
-	
-	
-	
-	
-	
+	}
 }

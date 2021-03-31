@@ -33,7 +33,7 @@ public class Klarinette {
 		 tf = new JTextField ("spieltschoen"+ name);
 		 bp = new BildPanel();
 		 audioClip.setFramePosition(0);
-		audioClip.start();
+		 audioClip.start();
 
 	}
 

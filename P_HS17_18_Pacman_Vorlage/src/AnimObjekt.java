@@ -6,7 +6,7 @@
 // Vorname:
 //
 
-public class AnimObjekt {
+public class AnimObjekt extends GrafikObjekt {
 	// 10 + 1
 	protected int vx = 0, vy = 0;
 	protected int zeile = -1, spalte = -1;
@@ -31,7 +31,8 @@ public class AnimObjekt {
 	 */
 	public AnimObjekt(int spalte, int zeile, int groesse, int[][] labyrinth, String bildDatei) {
 		// 2
-		
+		super(spalte * groesse, zeile * groesse, groesse, bildDatei);
+		this.labyrinth= labyrinth;
 	}
 
 	/**
@@ -47,6 +48,9 @@ public class AnimObjekt {
 	 */
 	public boolean kollisionTesten(AnimObjekt figur) {
 		// 3
+		if (Math.sqrt(Math.pow((x- figur.x), 2.0) + Math.pow((y- figur.y), 2.0)) < (groesse/2)) {
+			return true;
+		}
 		return false;
 	}
 
@@ -64,11 +68,17 @@ public class AnimObjekt {
 	 */
 	public boolean ueberFeld() {
 		// 6
+		zeile = spalte = -1;
+		if (x % groesse < v &&  y%groesse < v) {
+			spalte = x / groesse;
+			zeile = y / groesse;
+			return true;		
+		}
 		return false;
 	}
 
 	public void update() {
-		// x += vx;
-		// y += vy;
+		 x += vx;
+		 y += vy;
 	}
 }

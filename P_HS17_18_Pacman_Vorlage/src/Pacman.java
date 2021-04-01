@@ -9,7 +9,7 @@
 import java.awt.Graphics;
 import java.awt.Image;
 
-public class Pacman {
+public class Pacman extends AnimObjekt{
 	// 20 + 1
 	public static final int NONE = 0, UP = 1, DOWN = 2, LEFT = 3, RIGHT = 4;
 	protected int neueRichtung = NONE;

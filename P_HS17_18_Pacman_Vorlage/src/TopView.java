@@ -21,9 +21,12 @@ import javax.swing.JTextField;
 
 public class TopView extends JPanel implements ActionListener, SimpleTimerListener {
 	private static final long serialVersionUID = -3747283994960667384L;
+	Trace trace = new Trace(this, true);
 	// 27 + 3
 	@SuppressWarnings("unused")
 	private SimpleTimer timer;
+	private JButton btNeu = new JButton("Neues Spiel");
+	private JButton btWeiter = new JButton("Weiter...");
 	private JLabel lbScore = new JLabel();
 	private JLabel lbLeben = new JLabel();
 	private JTextField tfLeben = new JTextField("5");
@@ -46,6 +49,38 @@ public class TopView extends JPanel implements ActionListener, SimpleTimerListen
 	 */
 	public TopView() {
 		// 19
+
+		setLayout(null);
+		setPreferredSize(new Dimension(2700, 1500));
+		setBackground(Color.BLACK);
+
+		pacmanSpielPanel = new PacmanSpielPanel();
+		add(pacmanSpielPanel).setBounds(0, 0, 1650, 1500);
+
+		imBG = Utility.loadResourceImage("Clyde.png", 1050, 1500);
+
+		add(new JLabel("Score:")).setBounds(1710, 75, 450, 60);
+		add(lbScore).setBounds(2160, 75, 450, 60);
+
+		add(new JLabel("Verbleibende Leben:")).setBounds(1710, 150, 450, 60);
+		add(lbLeben).setBounds(2160, 150, 450, 60);
+
+		add(new JLabel("Anzahl Leben:")).setBounds(1710, 300, 450, 60);
+		add(tfLeben).setBounds(2160, 300, 450, 60);
+
+		add(new JLabel("Anzahl Geister:")).setBounds(1710, 375, 450, 60);
+		add(cbGeister).setBounds(2160, 375, 450, 60);
+
+		add(btNeu).setBounds(1710, 750, 900, 60);
+
+		add(btWeiter).setBounds(1710, 825, 900, 60);
+
+		btNeu.addActionListener(this);
+		btWeiter.addActionListener(this);
+
+		btNeu.doClick();
+
+		timer = new SimpleTimer(50, this);
 	}
 
 	/**
@@ -60,6 +95,15 @@ public class TopView extends JPanel implements ActionListener, SimpleTimerListen
 	 */
 	public void actionPerformed(ActionEvent e) {
 		// 6
+		if (e.getSource().equals(btNeu)) {
+			int lebenAnzahl = Integer.parseInt(tfLeben.getText());
+			int geistAnzahl = cbGeister.getSelectedIndex() + 2;
+			pacmanSpielPanel.neuesSpiel(lebenAnzahl, geistAnzahl);
+		}
+
+		if (e.getSource() == btWeiter) {
+			pacmanSpielPanel.weiter();
+		}
 	}
 
 	/**
@@ -70,7 +114,11 @@ public class TopView extends JPanel implements ActionListener, SimpleTimerListen
 	 * </pre>
 	 */
 	public void update() {
+		trace.methodeCall();
 		// 3
+		pacmanSpielPanel.update();
+		lbScore.setText(pacmanSpielPanel.score + "Punkte.");
+		lbLeben.setText("" + pacmanSpielPanel.anzahlLeben);
 	}
 
 	@Override
@@ -84,6 +132,8 @@ public class TopView extends JPanel implements ActionListener, SimpleTimerListen
 	 */
 	public void paintComponent(Graphics g) {
 		// 2
+		trace.methodeCall();
 		super.paintComponent(g);
+		g.drawImage(imBG, 1650, 0, this);
 	}
 }

@@ -31,6 +31,7 @@ public class AnimObjekt {
 	 */
 	public AnimObjekt(int spalte, int zeile, int groesse, int[][] labyrinth, String bildDatei) {
 		// 2
+		
 	}
 
 	/**

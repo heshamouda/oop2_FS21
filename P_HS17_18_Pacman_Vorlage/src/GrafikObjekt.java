@@ -14,9 +14,11 @@ public class GrafikObjekt {
 	protected int x, y;
 	protected int groesse;
 	protected Image bild;
+	private Trace trace = new Trace(this, true);
+	
 
 	public GrafikObjekt() {
-	}
+		}
 
 	/**
 	 * <pre>
@@ -31,7 +33,13 @@ public class GrafikObjekt {
 	 */
 	public GrafikObjekt(int x, int y, int groesse, String bildDatei) {
 		// 4
+		this.x = x;
+		this.y = y;
+		this.groesse = groesse;		
+		bild = Utility.loadResourceImage(bildDatei, groesse, groesse);
 	}
+
+
 
 	/**
 	 * <pre>
@@ -42,5 +50,7 @@ public class GrafikObjekt {
 	 */
 	public void anzeigen(Graphics g) {
 		// 1
+		trace.methodeCall();
+		g.drawImage(bild, x, y, null);
 	}
 }

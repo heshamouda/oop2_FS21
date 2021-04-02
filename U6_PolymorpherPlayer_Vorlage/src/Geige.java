@@ -1,38 +1,49 @@
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
 import javax.sound.sampled.Clip;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class Geige {
 
+public class Geige extends MusikInstrument{
+	
 	private String name = "Geige";
-
+	 
+	
 	private Image bild;
 	private Clip audioClip;
-
-	/**
-	 * <pre>
-	 * - laedt Bild mit Utility.loadResourceImage("violin.jpg",300,300);
-	 * - laedt audioClip mit Utility.loadAudioClip("schindler.wav");
-	 * </pre>
-	 */
+	
+	
 	public Geige() {
-		bild = Utility.loadResourceImage("violin.jpg", 300, 300);
+		
+		
+		bild = Utility.loadResourceImage("violin.jpg",300,300);
 		audioClip = Utility.loadAudioClip("schindler.wav");
-
+		
 	}
-
-	/**
-	 * <pre>
-	 * - setzt Textfeld mit Namen und Eigenschaft des Instruments (Name der Methode) 
-	 * - setzt BildPanel Bild mit entsprechendem Klassenattribut
-	 * - spielt audioClip mit .setFramePosition und .start
-	 * </pre>
-	 */
-	public void spieltleise(JTextField tf, BildPanel bp) {
-		tf = new JTextField("spieltleisw" + name);
-		bp = new BildPanel();
+	
+	public void spieltleise(JTextField tf,BildPanel bp) {
+		tf.setText(name + " spielt leise");
+		bp.bild = bild;
 		audioClip.setFramePosition(0);
 		audioClip.start();
+		
+	}
+	
+	@Override
+	public void spielen(JTextField tf, BildPanel bp) {
+		
+		spieltleise(tf, bp);
 
 	}
+
+	
+	
+	
+	
+	
 }

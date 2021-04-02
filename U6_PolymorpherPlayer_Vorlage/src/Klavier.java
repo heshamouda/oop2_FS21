@@ -41,11 +41,7 @@ public class Klavier extends MusikInstrument{
 
 	@Override
 	public void spielen(JTextField tf, BildPanel bp) {
-		 
-		tf.setText(name + " spielt mehrstimmig");
-		bp.bild = bild;
-		audioClip.setFramePosition(0);
-		audioClip.start();
+		spieltmehrstimmig(tf, bp);
 	}
 
 }

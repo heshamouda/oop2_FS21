@@ -7,6 +7,11 @@ public class MusikBox {
 	public MusikBox() {
 
 	}
+	
+//	public void spieleMusik(MusikInstrument instr, JTextField tf, BildPanel bildPanel) {
+//
+//		instr.spielen(tf, bildPanel);
+//	}
 
 	// Überladene Methoden
 	/**
@@ -27,6 +32,11 @@ public class MusikBox {
 	public void spieleMusik(Geige vl, JTextField tf, BildPanel bildPanel) {
 		vl.spieltleise(tf, bildPanel);
 		
+	}
+
+	public void spieleMusik(Klavier pn, JTextField tf, BildPanel bildPanel) {
+
+		pn.spieltmehrstimmig(tf, bildPanel);
 	}
 
 }

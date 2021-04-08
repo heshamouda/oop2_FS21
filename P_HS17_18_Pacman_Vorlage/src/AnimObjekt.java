@@ -69,7 +69,7 @@ public class AnimObjekt extends GrafikObjekt {
 	public boolean ueberFeld() {
 		// 6
 		zeile = spalte = -1;
-		if (x % groesse < v &&  y%groesse < v) {
+		if (x % groesse < v &&  y % groesse < v) {
 			spalte = x / groesse;
 			zeile = y / groesse;
 			return true;		

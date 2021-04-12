@@ -1,4 +1,5 @@
 /icons/
+/nimRodThemes/
 /BasicControlPanel$1.class
 /BasicControlPanel$2.class
 /BasicControlPanel$3.class
@@ -7,11 +8,10 @@
 /BasicControlPanel.class
 /BorderLayoutPanel$1.class
 /BorderLayoutPanel.class
+/CardLayoutPanel$1.class
 /CardLayoutPanel$2.class
 /CardLayoutPanel$3.class
 /CardLayoutPanel$4.class
-/nimRodThemes/
-/CardLayoutPanel$1.class
 /CardLayoutPanel$PopupListener.class
 /CardLayoutPanel.class
 /ContainerPane.class

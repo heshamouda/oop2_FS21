@@ -15,7 +15,7 @@ public class MusikBox {
 	 * </pre>
 	 */
 	public void spieleMusik(Klarinette cl, JTextField tf, BildPanel bildPanel) {
-		
+		cl.spieltschoen(tf, bildPanel);
 	}
 
 	/**
@@ -24,7 +24,10 @@ public class MusikBox {
 	 * </pre>
 	 */
 	public void spieleMusik(Geige vl, JTextField tf, BildPanel bildPanel) {
-		
+		vl.spieltleise(tf, bildPanel);
 	}
 
+	public void spieleMusik(Klavier pn, JTextField tf, BildPanel bildPanel) {
+		pn.spieltmehrstimmig(tf, bildPanel);
+	}
 }

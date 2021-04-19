@@ -18,10 +18,8 @@ public class Geige {
 	 * </pre>
 	 */
 	public Geige() {
-		
-		
-		
-		
+		bild = Utility.loadResourceImage("violin.jpg",300,300);
+		audioClip = Utility.loadAudioClip("schindler.wav");
 	}
 	
 	/**
@@ -32,15 +30,9 @@ public class Geige {
 	 * </pre>
 	 */
 	public void spieltleise(JTextField tf,BildPanel bp) {
-		
-		
-	}
-	
-	
-
-	
-	
-	
-	
-	
+		tf.setText(name + " spielt leise");
+		bp.bild = bild;
+		audioClip.setFramePosition(0);
+		audioClip.start();		
+	}	
 }

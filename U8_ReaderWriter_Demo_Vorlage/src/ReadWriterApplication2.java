@@ -18,7 +18,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 import javax.swing.filechooser.FileFilter;
 
-public class ReadWriterApplication extends JFrame implements ActionListener {
+public class ReadWriterApplication2 extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private JFileChooser jfcDialog = new JFileChooser(new File(".//"));
 	private JTextArea jtArea = new JTextArea(20, 80);
@@ -29,7 +29,7 @@ public class ReadWriterApplication extends JFrame implements ActionListener {
 	private BufferedReader tastatur;
 	private String zeile;
 
-	public ReadWriterApplication() {
+	public ReadWriterApplication2() {
 		setLayout(new GridBagLayout());
 
 		add(jtArea, new GridBagConstraints(0, 0, 3, 1, 1.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH,
@@ -61,33 +61,40 @@ public class ReadWriterApplication extends JFrame implements ActionListener {
 				System.out.println(file.getName());
 				System.out.println(file.getAbsolutePath());
 				dateiName = file.getAbsolutePath();
-			}
-			try {
-				eingabeDatei = new BufferedReader(new FileReader(dateiName));
+				
+				String[] zeilen = leseDatei(dateiName);
 				jtArea.setText("");
-				String zeile;
-				while ((zeile = eingabeDatei.readLine()) != null) {
-					jtArea.append(zeile + "\n");
+				
+				for( int i = 0; i< zeilen.length;i++) {
+					jtArea.append(zeilen[i] + "");
 				}
-				eingabeDatei.close();
-
-			} catch (IOException exc) {
-				System.err.println("Dateifehler: " + exc.toString());
-				System.exit(1);
 			}
-		}
-
-		if (e.getSource() == btSpeichern) {
-
-			dateiName = "Test2.txt";
-			try {
-				ausgabeDatei = new PrintWriter(new FileWriter(dateiName, false));
-				ausgabeDatei.print(jtArea.getText());
-				ausgabeDatei.close();
-			} catch (IOException exc) {
-				System.err.println("Dateifehler: " + exc.toString());
-				System.exit(1);
-			}
+//			try {
+//				eingabeDatei = new BufferedReader(new FileReader(dateiName));
+//				jtArea.setText("");
+//				String zeile;
+//				while ((zeile = eingabeDatei.readLine()) != null) {
+//					jtArea.append(zeile + "\n");
+//				}
+//				eingabeDatei.close();
+//
+//			} catch (IOException exc) {
+//				System.err.println("Dateifehler: " + exc.toString());
+//				System.exit(1);
+//			}
+//		}
+//
+//		if (e.getSource() == btSpeichern) {
+//
+//			dateiName = "Test2.txt";
+//			try {
+//				ausgabeDatei = new PrintWriter(new FileWriter(dateiName, false));
+//				ausgabeDatei.print(jtArea.getText());
+//				ausgabeDatei.close();
+//			} catch (IOException exc) {
+//				System.err.println("Dateifehler: " + exc.toString());
+//				System.exit(1);
+//			}
 		}
 	}
 
@@ -95,8 +102,27 @@ public class ReadWriterApplication extends JFrame implements ActionListener {
 	}
 
 	private String[] leseDatei(String dateiName) {
+		String [] zeilen = {};
+		int counter = 0;
+		try {
+			eingabeDatei = new BufferedReader(new FileReader(dateiName));
+						
+			while ((eingabeDatei.readLine()) != null) {
+				counter++;
+			}
+			eingabeDatei.close();
+			
+			for (int i = 0; i < zeilen.length; i++) {
+				
+			}
+			
+			
+		} catch (IOException exc) {
+			System.err.println("Dateifehler: " + exc.toString());
+			System.exit(1);
+		}
 
-		return null;
+		return zeilen;
 	}
 
 	public static void main(String[] args) {
@@ -108,7 +134,7 @@ public class ReadWriterApplication extends JFrame implements ActionListener {
 					exception.printStackTrace();
 				}
 
-				ReadWriterApplication frame = new ReadWriterApplication();
+				ReadWriterApplication2 frame = new ReadWriterApplication2();
 				frame.addWindowListener(new WindowAdapter() {
 					public void windowClosing(WindowEvent e) {
 						System.exit(1);

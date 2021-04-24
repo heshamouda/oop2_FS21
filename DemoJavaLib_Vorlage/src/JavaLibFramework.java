@@ -21,7 +21,8 @@ class ViewPanel extends JPanel {
 		mySecondName = "Mustermann";
 		x = new String("Susanne");
 		y = new String("Mustermann");
-
+		
+	
 		int count = 7;
 
 		String message = String.format("count is %05d", count);
@@ -39,10 +40,13 @@ class ViewPanel extends JPanel {
 		
 
 		//.equalsIgnoreCase
+		if(x.equalsIgnoreCase("Susanne"));
+			System.out.println("Name is alaways the same");
 		
 
 		//.compareTo
-		
+		int n = "bdoor".compareTo("adoor");
+		System.out.println("n= " + n);
 
 		//String verändern
 		String testString;

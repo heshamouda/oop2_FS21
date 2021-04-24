@@ -3,7 +3,7 @@ import javax.sound.sampled.Clip;
 import javax.swing.JTextField;
 
 
-public class Geige {
+public class Geige extends MusikInstrument{
 	
 	private String name = "Geige";
 	 
@@ -34,5 +34,11 @@ public class Geige {
 		bp.bild = bild;
 		audioClip.setFramePosition(0);
 		audioClip.start();		
+	}
+
+	@Override
+	public void spielen(JTextField tf, BildPanel bildPanel) {
+		spieltleise(tf, bildPanel);
+		
 	}	
 }

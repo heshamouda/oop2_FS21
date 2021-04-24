@@ -2,7 +2,7 @@ import java.awt.Image;
 import javax.sound.sampled.Clip;
 import javax.swing.JTextField;
 
-public class Klarinette {
+public class Klarinette extends MusikInstrument{
 
 	private String name = "Klarinette";
 
@@ -33,4 +33,10 @@ public class Klarinette {
 		audioClip.setFramePosition(0);
 		audioClip.start();
 		}
+
+	@Override
+	public void spielen(JTextField tf, BildPanel bildPanel) {
+		spielen(tf, bildPanel);
+		
+	}
 }

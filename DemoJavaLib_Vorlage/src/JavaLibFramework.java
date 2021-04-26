@@ -21,22 +21,27 @@ class ViewPanel extends JPanel {
 		mySecondName = "Mustermann";
 		x = new String("Susanne");
 		y = new String("Mustermann");
-		
+//		System.out.println("My Name is \n" + myFirstName );
 	
 		int count = 7;
-
-		String message = String.format("count is %05d", count);
+		
+		String message = String.format("count is %02d", count); //formatting 
 		System.out.println(message);
 
 		double pi = Math.PI;
-
+		message = String.format("pi is %.6f", pi ); //determine comma position
+		System.out.println(message);
 		double scientific = 100654;
 		
+		String message3 = String.format("Scientific is %.1e",scientific); //scientific formatting
+		System.out.println(message3);
 		
 
 		//String vergleichen
 		//.equals
-
+		if (myFirstName.equals ("Hans")) {
+			System.out.println("Name is identical");
+		}
 		
 
 		//.equalsIgnoreCase
@@ -45,13 +50,14 @@ class ViewPanel extends JPanel {
 		
 
 		//.compareTo
-		int n = "bdoor".compareTo("adoor");
+		int n = "gmeise".compareTo("fmeise");
 		System.out.println("n= " + n);
 
 		//String verändern
 		String testString;
 		//.replace
-		
+		String test2String = "Mississipi".replace("s", "t");
+		System.out.println(test2String);
 
 		//.toLowerCase
 		
@@ -59,13 +65,15 @@ class ViewPanel extends JPanel {
 		//.trim
 		String testStringOriginal = "\tIch \twuensche \tIhnen \teinen \tguten \tTag!\n";
 		System.out.println(testStringOriginal);
-		
+		System.out.println(testStringOriginal.trim());
 
 		//String analysieren
 		//.length()
+		System.out.println(testStringOriginal.length());
+		System.out.println(testStringOriginal.trim().length());
 		
 		//.substring
-		testString = "Hi there!";
+		testString = "Hi there!".substring(3,8);
 		System.out.println(testString);
 
 		//.charAt
@@ -108,11 +116,11 @@ class ViewPanel extends JPanel {
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		setFont(new Font("Arial", Font.BOLD, 15));
-		g.drawString("My Name is " + myFirstName + " " + mySecondName, 100, 100);
+		g.drawString("My Name is \n" + myFirstName + " " + mySecondName, 100, 100);
 		int z = 25;
 		g.drawString("The number is " + z, 100, 150);
 
-		g.drawString("  " + "      ", 100, 200);
+		g.drawString(" \"  " + "    \\  ", 100, 200);
 
 	}
 

@@ -11,20 +11,39 @@ public class Model extends Observable {
 		trace.constructorCall();
 	}
 
+
 	/**
-	 * <pre>
-	 * -berechnet je nach Signlform das entsprechende Signal und charakteristischen Groessen 
-	 * - meldet update dem Observer
-	 * </pre>
-	 * 
+	 * <pre> 
+	 * -berechnet je nach Signalform das entsprechende Signal und  charakteristischen Groessen
+	 * - notifiziert den Observer 
 	 * @param amp
 	 * @param freq
 	 * @param nHarm
 	 * @param form
 	 * @param N
+	 * </pre>
 	 */
 	public void berechne(double amp, double freq, int nHarm, String form, int N) {
 		trace.methodeCall();
+		switch (form) {
+		case "Rechteck":
+			signal = berechneRechteck(amp, freq, nHarm, N);
+			break;
+		case "Dreieck":
+			signal = berechneDreieck(amp, freq, nHarm, N);
+			break;
+		case "Sägezahn":
+			signal = berechneSaegezahn(amp, freq, nHarm, N);
+			break;
+		default:
+			break;
+
+		}
+
+		peak = berechnePeak(signal);
+		rms = berechneRms(signal);
+
+		notifyObservers();
 
 	}
 
@@ -41,6 +60,14 @@ public class Model extends Observable {
 	private double[] berechneRechteck(double amp, double freq, int nHarm, int N) {
 		trace.methodeCall();
 		double[] y = new double[N];
+
+		for (int n = 0; n < N; n++) {
+			for (int k = 1; k <= nHarm; k++) {
+
+				y[n] += 4 * amp / Math.PI * Math.sin(2 * Math.PI * freq * (2 * k - 1) * n / (N - 1)) / (2 * k - 1);
+
+			}
+		}
 
 		return y;
 	}
@@ -59,6 +86,15 @@ public class Model extends Observable {
 		trace.methodeCall();
 		double[] y = new double[N];
 
+		for (int n = 0; n < N; n++) {
+			for (int k = 1; k <= nHarm; k++) {
+
+				y[n] += 4 * amp / Math.PI * Math.pow(-1, k + 1)
+						* Math.sin(2 * Math.PI * freq * (2 * k - 1) * n / (N - 1)) / Math.pow(2 * k - 1, 2);
+
+			}
+		}
+
 		return y;
 	}
 
@@ -76,8 +112,15 @@ public class Model extends Observable {
 		trace.methodeCall();
 		double[] y = new double[N];
 
-		return y;
+		for (int n = 0; n < N; n++) {
+			for (int k = 1; k <= nHarm; k++) {
 
+				y[n] += 2 * amp / Math.PI * Math.pow(-1, k + 1) * Math.sin(2 * Math.PI * freq * k * n / (N - 1)) / k;
+
+			}
+		}
+
+		return y;
 	}
 
 	/**
@@ -88,6 +131,11 @@ public class Model extends Observable {
 	 */
 	private double berechnePeak(double[] signal) {
 		double max = 0.0;
+		for (int n = 0; n < signal.length; n++) {
+			if (Math.abs(signal[n]) > max) {
+				max = Math.abs(signal[n]);
+			}
+		}
 
 		return max;
 
@@ -101,6 +149,10 @@ public class Model extends Observable {
 	 */
 	private double berechneRms(double[] signal) {
 		double rms = 0.0;
+		for (int n = 0; n < signal.length; n++) {
+			rms += Math.pow(signal[n], 2.0);
+		}
+		rms = Math.sqrt(rms / signal.length);
 
 		return rms;
 
@@ -108,6 +160,7 @@ public class Model extends Observable {
 
 	/**
 	 * - holt private attribut peak
+	 * @return
 	 */
 	public double getPeak() {
 		trace.methodeCall();

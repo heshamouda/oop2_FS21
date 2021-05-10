@@ -38,8 +38,8 @@ public class Person extends JPanel implements MouseListener {
 		g.fillRect(5, 5, 205, 340);
 		g.setColor(Color.black);
 		g.drawRect(5, 5, 205, 340);
-		g.drawString("Vorname " + vorname, 20, 20);
-		g.drawString("Name " + name, 20, 20);
+		g.drawString("Vorname: " + vorname, 20, 20);
+		g.drawString("Name: " + name, 20, 40);
 		g.drawImage(bild, 20, 50, null);
 
 	}

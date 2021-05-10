@@ -1,6 +1,7 @@
 package model;
 
 import util.Observable;
+import util.TraceV5;
 
 public class Model extends Observable implements DataListener {
 
@@ -18,23 +19,22 @@ public class Model extends Observable implements DataListener {
 	 * </pre>
 	 */
 	public Model() {
-
-		
+		signalSource = new SignalSource(this);		
 	}
 
 	public double getMaxValue() {
 
-		return 0;
+		return maxValue;
 	}
 
 	public double getMinValue() {
 
-		return 0;
+		return minValue;
 	}
 
 	public double getMeanPower() {
 
-		return 0;
+		return meanPower;
 	}
 
 	public double[] getSignal() {
@@ -53,6 +53,7 @@ public class Model extends Observable implements DataListener {
 	 * </pre>
 	 */
 	public void triggerSignalGenerator(double varianz) {
+		signalSource.generateSignal(varianz);
 		
 	}
 
@@ -62,9 +63,21 @@ public class Model extends Observable implements DataListener {
 	 * </pre>
 	 */
 	public void calcFilterConstant(int slValue) {
+		switch (slValue) {
+		case 1:
+			filtConst = 0.3;
+			break;
+		case 2:
+			filtConst =0.6;
+			break;
+		case 3:
+			filtConst = 0.8;
+			break;
 
-		
-
+		default:
+			filtConst = 0.8;
+			 
+		}	
 	}
 
 	/**
@@ -77,6 +90,32 @@ public class Model extends Observable implements DataListener {
 	 */
 	@Override
 	public void process(double[] data) {
+		double max = 0.0;
+		double min = 0.0;
+		meanPower = 0.0;
+		
+		signal = data;
+		filteredSignal = new double[data.length];
+		
+		for (int i = 0; i < data.length; i++) {
+			if (data [i] > max) {
+				max = data[i];
+				}
+			if (data[i] < min) {
+				min = data[i];
+			}
+			
+			meanPower += 1.0 / data.length * Math.pow(data[i], 2.0);
+		}
+		
+		maxValue = max;
+		minValue = min;	
+		
+		filteredSignal[0] = data[0];
+		for (int n = 1; n < data.length; n++) {
+			filteredSignal[n] = filtConst * filteredSignal[n - 1] + (1 - filtConst) * data[n];
+		}
+		notifyObservers();
 		
 	}
 
@@ -86,8 +125,8 @@ public class Model extends Observable implements DataListener {
 	 * </pre>
 	 */
 	public void notifyObservers() {
-
 		
+		 setChanged();
+		 super.notifyObservers();
 	}
-
 }

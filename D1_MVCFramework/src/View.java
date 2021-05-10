@@ -15,7 +15,9 @@ public class View extends JPanel implements Observer, ActionListener {
 	public JTextField tf1 = new JTextField(40), tf2 = new JTextField(40);
 	private Controller controller;
 	private JButton btOK = new JButton("OK");
-
+	
+	
+	 
 	public View(Controller controller) {
 		trace.constructorCall();
 
@@ -32,11 +34,13 @@ public class View extends JPanel implements Observer, ActionListener {
 		btOK.addActionListener(this);
 	}
 
-	public void actionPerformed(ActionEvent e) {
-		trace.eventCall();
-		controller.btAction(tf1.getText());
-	}
 
+ 
+	public void actionPerformed(ActionEvent e) {
+		 trace.eventCall();
+		 controller.btAction(tf1.getText());		
+	}
+	
 	public void update(Observable obs, Object obj) {
 		trace.methodeCall();
 		if (obs instanceof Model) {

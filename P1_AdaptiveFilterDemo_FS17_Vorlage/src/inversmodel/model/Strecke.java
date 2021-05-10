@@ -1,0 +1,10 @@
+package inversmodel.model;
+
+public class Strecke {
+
+	public static final double[] B = { 0.226095662159805, 0.8696364099159, 1.2878040268337, 0.8696364099159,
+			0.226095662159805 };
+
+	public static final double[] A = { 1.0, 1.45975192883916, 1.48270397144631, 0.636280870044761, 0.335860148997178 };
+
+}

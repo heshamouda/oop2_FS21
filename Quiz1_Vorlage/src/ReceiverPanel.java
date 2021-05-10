@@ -35,19 +35,19 @@ public class ReceiverPanel extends JPanel {
 	public ReceiverPanel() {
 
 		setBorder(MyBorderFactory.createMyBorder(" BorderLayout Receiver "));
-		setLayout(new BorderLayout ());
-		
+
+		setLayout(new BorderLayout());
+		add(tfZeile, BorderLayout.NORTH);
+		add(taLeft, BorderLayout.WEST);
+		add(btClear, BorderLayout.SOUTH);
+
 		btClear.addActionListener(new ActionListener() {
-			
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				if (e.getSource().equals(btClear)) {
-					
-					
-				}
-				
+
+				taLeft.setText("");
+				tfZeile.setText("");
 			}
 		});
 

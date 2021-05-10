@@ -1,4 +1,4 @@
-import util.TraceV4;
+ import util.TraceV4;
 
 public class Controller {
 	private TraceV4 trace = new TraceV4(this);
@@ -6,12 +6,14 @@ public class Controller {
 	private View view;
 
 	/**
-	 * <pre>
+	 * <pre> 
 	 * - setzt Attribut der Klasse
 	 * </pre>
 	 */
 	public Controller(Model model) {
 		trace.constructorCall();
+
+		this.model = model;
 
 	}
 
@@ -22,7 +24,7 @@ public class Controller {
 	 */
 	public void setView(View view) {
 		trace.methodeCall();
-
+		this.view = view;
 	}
 
 	/**
@@ -35,5 +37,11 @@ public class Controller {
 	public void btBerechne() {
 		trace.methodeCall();
 
+		double amp = Double.parseDouble(view.parameterPanel.tfAmp.getText());
+		double freq = Double.parseDouble(view.parameterPanel.tfFreq.getText());
+		int nHarm = Integer.parseInt(view.parameterPanel.tfHarm.getText());
+		String form = (String) view.parameterPanel.cbForm.getSelectedItem();
+
+		model.berechne(amp, freq, nHarm, form, 620);
 	}
 }

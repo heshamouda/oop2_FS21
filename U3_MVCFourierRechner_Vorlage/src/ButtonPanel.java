@@ -13,27 +13,27 @@ public class ButtonPanel extends JPanel implements ActionListener {
 	private TraceV4 trace = new TraceV4(this);
 	private Controller controller;
 	
+	
 	public JButton btBerechne = new JButton("Berechne");
 
-	/**
-	 * <pre>
-	 *- setzt Attribut der Klasse
-	 *- setzt Button im BorderLayout und registriert ActionListener
-	 * </pre>
-	 */
 	public ButtonPanel(Controller controller) {
 		trace.constructorCall();
 		setLayout(new BorderLayout());
 		setBorder(MyBorderFactory.createMyBorder(" Button "));
-
+		
+		this.controller = controller;
+		add(btBerechne, BorderLayout.CENTER);
+		btBerechne.addActionListener(this);
 	}
 
 	/**
-	 * ueberführt Action zum Controller
+	 *überführt Action zum Controller
 	 */
-	@Override
+	@Override 
 	public void actionPerformed(ActionEvent e) {
 		trace.eventCall();
-
+		
+		controller.btBerechne();
+		
 	}
 }

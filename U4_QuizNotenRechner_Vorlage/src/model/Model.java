@@ -17,7 +17,7 @@ public class Model extends Observable {
 	 */
 	public double getData() {
 		trace.methodeCall();
-		return 0;
+		return note;
 	}
 
 	/**
@@ -28,8 +28,11 @@ public class Model extends Observable {
 	 */
 	public void berechneNote(double anzahlPunkte, double maxPunkte) {
 		trace.methodeCall();
-
-		
+		note = (anzahlPunkte / maxPunkte) *5.0 +1.0;
+		if (note > 6.0) {
+			note =6.0;
+		}		
+		notifyObservers();	
 	}
 
 	public void notifyObservers() {

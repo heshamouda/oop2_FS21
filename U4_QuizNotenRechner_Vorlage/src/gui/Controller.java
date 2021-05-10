@@ -14,7 +14,7 @@ public class Controller {
 	 */
 	public Controller(Model model) {
 		trace.constructorCall();
-		
+		this.model = model;		
 	}
 
 	/**
@@ -24,7 +24,7 @@ public class Controller {
 	 */
 	public void setView(View view) {
 		trace.methodeCall();
-		
+		this.view = view;
 	}
 
 	/**
@@ -34,7 +34,9 @@ public class Controller {
 	 */
 	public void btBerechne() {
 		trace.methodeCall();
-		
+		double anzahlPunkte = Double.parseDouble(view.inputPanel.tfAnzahlPunkte.getText());
+		double maxPunkte = Double.parseDouble(view.inputPanel.tfMaxPunkte.getText());
+		model.berechneNote(anzahlPunkte, maxPunkte);	
 		
 	}
 
@@ -47,7 +49,10 @@ public class Controller {
 	 */
 	public void btReset() {
 		trace.methodeCall();
-	
+		String anzahlPunkte = "8" ;
+		String maxPunkte = "12" ;
 		
+		view.inputPanel.tfAnzahlPunkte.setText(anzahlPunkte);
+		view.inputPanel.tfMaxPunkte.setText(maxPunkte);		
 	}
 }

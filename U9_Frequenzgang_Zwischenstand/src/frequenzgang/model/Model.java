@@ -17,7 +17,10 @@ public class Model extends Observable {
 	 */
 	public Model(double fStart, double fStop, int n) {
 		trace.constructorCall();
-		
+		faxis = new double [n];
+		for (int i = 0; i < faxis.length; i++) {
+			faxis[i] = fStart + (fStop - fStart) / (n-1) *
+		}
 
 	}
 

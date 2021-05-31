@@ -58,7 +58,7 @@ public class Complex {
 
 	public Complex div(double z) {
 
-		return null;
+		return null; 
 	}
 
 	public Complex div(Complex z) {

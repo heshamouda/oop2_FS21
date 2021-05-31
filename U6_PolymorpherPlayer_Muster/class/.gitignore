@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /BildPanel.class
 /Geige.class
 /InstrumentenPanel.class
@@ -10,17 +9,4 @@
 /PolymorphieFrame.class
 /Utility.class
 /audio/
-=======
-/audio/
-/BildPanel.class
-/Geige.class
-/InstrumentenPanel.class
-/Klarinette.class
-/Klavier.class
-/MusikBox.class
-/MusikInstrument.class
-/PolymorphieFrame$1.class
-/PolymorphieFrame.class
-/Utility.class
->>>>>>> branch 'devLab' of https://github.com/heshamouda/oop2_FS21.git
 /bilder/

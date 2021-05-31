@@ -5,8 +5,8 @@ import util.TraceV5;
 
 public class Model extends Observable {
 	private TraceV5 trace = new TraceV5(this);
-	private Complex[] H = {};
-	private double[] faxis = {};
+	private Complex[] H = {};// = new Complex[0];
+	private double[] faxis = {};// = new double[0];
 
 	/**
 	 * Konstruiert Frequenzachse des Models.
@@ -17,9 +17,9 @@ public class Model extends Observable {
 	 */
 	public Model(double fStart, double fStop, int n) {
 		trace.constructorCall();
-		faxis = new double [n];
-		for (int i = 0; i < faxis.length; i++) {
-			faxis[i] = fStart + (fStop - fStart) / (n-1) *
+		faxis = new double[n];
+		for (int k = 0; k < faxis.length; k++) {
+			faxis[k] = fStart + (fStop - fStart) / (n - 1) * k;
 		}
 
 	}
@@ -34,7 +34,8 @@ public class Model extends Observable {
 	 */
 	public void setUTF(double[] zaehler, double[] nenner) {
 		trace.methodeCall();
-		
+		H = PicoMatlab.freqs(zaehler, nenner, faxis);
+		notifyObservers();
 	}
 
 	/**
@@ -44,7 +45,7 @@ public class Model extends Observable {
 	 */
 	public double[] getFaxis() {
 		trace.methodeCall();
-		return null;//damit Compiler happy
+		return faxis;
 	}
 
 	/**
@@ -55,7 +56,7 @@ public class Model extends Observable {
 	public double[] getAmplitude() {
 		trace.methodeCall();
 
-		return null;//damit Compiler happy
+		return Complex.abs(H);
 	}
 
 	/**
@@ -66,7 +67,7 @@ public class Model extends Observable {
 	public double[] getPhase() {
 		trace.methodeCall();
 
-		return null;//damit Compiler happy
+		return Complex.angle(H);
 	}
 
 	public int getLength() {
@@ -76,7 +77,7 @@ public class Model extends Observable {
 		else
 			return H.length;
 	}
- 
+
 	/**
 	 * Benachrichtigt Observers.
 	 */

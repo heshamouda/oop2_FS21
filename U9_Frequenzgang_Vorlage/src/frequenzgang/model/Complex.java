@@ -66,7 +66,7 @@ public class Complex {
 
 	public Complex power(double x) {
 
-		return new Complex(Math.pow(abs(), x) * Math.cos(angle() * x), Math.pow(abs(), x)*Math.sin( ));
+		return new Complex(Math.pow(abs(), x) * Math.cos(angle() * x), Math.pow(abs(), x)*Math.sin(x ));
 	}
 
 	public double angle() {

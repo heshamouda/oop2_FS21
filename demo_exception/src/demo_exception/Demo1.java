@@ -2,14 +2,17 @@ package demo_exception;
 
 public class Demo1 {
 
-	public static int getIntValue() {
+	public static int getIntValue() throws NumberFormatException {
 		String number = "4.23";
 		try {
 			return Integer.parseInt(number);
 
 		} catch (NumberFormatException exception) {
-			 System.out.println("Error in parseInt");
-			 return 0;
+//			exception.printStackTrace();
+			System.out.println(exception.toString());
+			exception.getMessage();
+
+			return 0;
 		}
 
 	}

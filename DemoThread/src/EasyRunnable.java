@@ -9,11 +9,13 @@ public class EasyRunnable implements Runnable {
 
 	public static void main(String[] args) throws InterruptedException {
 		Thread thread = new Thread(new EasyRunnable("easyRunnable1"));
-		
+		Thread thread2 = new Thread(new EasyRunnable("easyRunnable2"));
 		thread.start();
+		thread2.start();
 		
 		System.out.println("Wait for other easyRunnable");
 		thread.join();
+		thread2.join();
 		System.out.println("Main Thread is ready");
 	}
 

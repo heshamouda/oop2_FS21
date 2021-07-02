@@ -22,8 +22,17 @@ public class Ball {
 			g.drawRect(xLinks, yOben, xRechts - xLinks + d, yUnten - yOben + d);
 			// Mittels for - Schleife warten ...
 			
-			
-
+//			for (int i = 0; i < 10e6; i++) {
+//				
+//			}
+//			
+			try {
+				Thread.sleep(50);
+				System.out.println(Thread.currentThread());
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			// Ball an alter Position löschen …
 			g.setColor(Color.white);
 			g.fillOval(x, y, d, d);

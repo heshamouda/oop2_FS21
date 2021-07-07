@@ -27,24 +27,56 @@ public class View extends JPanel implements Observer, ActionListener {
 		super(new GridBagLayout());
 		setBorder(MyBorderFactory.createMyBorder(" View Panel "));
 
-		
-		
-		
+		this.controller = controller;
+		add(new JLabel("Term:"), new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0, GridBagConstraints.WEST,
+				GridBagConstraints.NONE, new Insets(10, 10, 10, 10), 0, 0));
+		add(new JLabel("Ergebnis:"), new GridBagConstraints(1, 0, 1, 1, 0.0, 0.0, GridBagConstraints.WEST,
+				GridBagConstraints.NONE, new Insets(10, 10, 10, 10), 0, 0));
+		add(tfTerm, new GridBagConstraints(0, 1, 1, 1, 1.0, 0.0, GridBagConstraints.CENTER,
+				GridBagConstraints.HORIZONTAL, new Insets(10, 10, 10, 10), 0, 0));
+		add(tfResult, new GridBagConstraints(1, 1, 1, 1, 1.0, 0.0, GridBagConstraints.CENTER,
+				GridBagConstraints.HORIZONTAL, new Insets(10, 10, 10, 10), 0, 0));
+		add(new JLabel(), new GridBagConstraints(0, 2, 2, 1, 1.0, 0.0, GridBagConstraints.WEST, GridBagConstraints.NONE,
+				new Insets(10, 10, 10, 10), 0, 0));
+		add(taBoard, new GridBagConstraints(0, 2, 2, 1, 1.0, 1.0, GridBagConstraints.CENTER, GridBagConstraints.BOTH,
+				new Insets(10, 10, 10, 10), 0, 0));
+		add(btSort, new GridBagConstraints(0, 3, 2, 1, 1.0, 0.0, GridBagConstraints.CENTER,
+				GridBagConstraints.HORIZONTAL, new Insets(10, 10, 10, 10), 0, 0));
+		tfTerm.addActionListener(this);
+		btSort.addActionListener(this);
 
 	}
-	
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		
-		
+
+		if (e.getSource().equals(tfTerm)) {
+
+			controller.tfRecalc();
+		}
+		if (e.getSource().equals(btSort)) {
+
+			controller.btSortieren();
+		}
+
 	}
 
 	public void update(Observable obs, Object obj) {
-		
-		
-		
+		// public void update(Observable obs, Object obj) {
+		if (obs instanceof Model) {
+			Model model = (Model) obs;
+			// acces to model
 
+			// update textField
+			tfResult.setText(Integer.toString(model.getErgebnis())); // get result
+
+			// update text area
+			taBoard.setText("");
+			String[] zeilen = model.getAlphabetOrder(); // gets strings
+			for (int i = 0; i < zeilen.length; i++) {
+				taBoard.append(zeilen[i] + "\n"); // new line after
+			}
+
+		}
 	}
-
-	
 }

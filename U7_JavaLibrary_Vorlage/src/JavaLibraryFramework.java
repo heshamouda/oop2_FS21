@@ -6,18 +6,24 @@ import javax.swing.JFrame;
 import util.Observer;
 
 public class JavaLibraryFramework extends JFrame {
-	
+
 	private static final long serialVersionUID = 1L;
-	Model model; 
-	Controller controller; 
-	View view; 
+	Model model;
+	Controller controller;
+	View view;
 
 	public JavaLibraryFramework() {
-		
-		//ToDo: MVC Pattern realisieren
-		
-		
-		
+
+		// ToDo: MVC Pattern realisieren
+
+		model = new Model();
+		controller = new Controller(model);
+		view = new View(controller);
+
+		controller.setView(view);
+		model.addObserver(view);
+		add(view);
+
 		pack();
 		setMinimumSize(getPreferredSize());
 		setResizable(true);
@@ -25,7 +31,7 @@ public class JavaLibraryFramework extends JFrame {
 	}
 
 	public static void main(String args[]) {
-		
+
 		JavaLibraryFramework demo = new JavaLibraryFramework();
 		demo.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
@@ -36,4 +42,3 @@ public class JavaLibraryFramework extends JFrame {
 		demo.setTitle("String Manipulation");
 	}
 }
-

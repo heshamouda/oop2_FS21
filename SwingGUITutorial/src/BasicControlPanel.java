@@ -64,65 +64,65 @@ public class BasicControlPanel extends JPanel
 		super(new GridBagLayout());
 		this.controller = controller;
 
-		// JButton
-		btOk = new JButton("OK", Utility.loadResourceIcon("axialis-blue/32x32/Ok.png"));
-		btOk.setVerticalTextPosition(AbstractButton.CENTER);
-		btOk.setHorizontalTextPosition(AbstractButton.TRAILING);
-		btOk.setMnemonic(KeyEvent.VK_O);
-		btOk.setActionCommand("ok");
-		btOk.addActionListener(this);
+//		// JButton
+//		JButton btOk = new JButton("OK", Utility.loadResourceIcon("axialis-blue/32x32/Ok.png"));
+//		btOk.setVerticalTextPosition(AbstractButton.CENTER);
+//		btOk.setHorizontalTextPosition(AbstractButton.TRAILING);
+//		btOk.setMnemonic(KeyEvent.VK_O);
+//		btOk.setActionCommand("ok");
+//		btOk.addActionListener(this);
+//
+//		// JComboBox
+//		comboBox = new JComboBox(petStrings);
+//		comboBox.setSelectedIndex(4);
+//		comboBox.setActionCommand("petList");
+//		comboBox.addActionListener(this);
+//
+//		// JList
+//		DefaultListModel defaultListModel = new DefaultListModel();
+//		defaultListModel.addElement("Scott Hommel");
+//		defaultListModel.addElement("Alan Sommerer");
+//		defaultListModel.addElement("Debbie Scott");
+//		list = new JList(defaultListModel);
+//		list.setVisibleRowCount(2);
+//		list.addListSelectionListener(this);
+//		JScrollPane listScroller = new JScrollPane(list);
+//
+//		// JRadioButton
+//		birdButton = new JRadioButton(birdString);
+//		birdButton.setMnemonic(KeyEvent.VK_B);
+//		birdButton.setActionCommand(birdString);
+//		birdButton.setSelected(true);
+//		birdButton.addActionListener(this);
+//
+//		catButton = new JRadioButton(catString);
+//		catButton.setMnemonic(KeyEvent.VK_C);
+//		catButton.setActionCommand(catString);
+//		catButton.addActionListener(this);
+//
+//		dogButton = new JRadioButton(dogString);
+//		dogButton.setMnemonic(KeyEvent.VK_D);
+//		dogButton.setActionCommand(dogString);
+//		dogButton.addActionListener(this);
+//
+//		ButtonGroup group = new ButtonGroup();
+//		group.add(birdButton);
+//		group.add(catButton);
+//		group.add(dogButton);
 
-		// JComboBox
-		comboBox = new JComboBox(petStrings);
-		comboBox.setSelectedIndex(4);
-		comboBox.setActionCommand("petList");
-		comboBox.addActionListener(this);
-
-		// JList
-		DefaultListModel defaultListModel = new DefaultListModel();
-		defaultListModel.addElement("Scott Hommel");
-		defaultListModel.addElement("Alan Sommerer");
-		defaultListModel.addElement("Debbie Scott");
-		list = new JList(defaultListModel);
-		list.setVisibleRowCount(2);
-		list.addListSelectionListener(this);
-		JScrollPane listScroller = new JScrollPane(list);
-
-		// JRadioButton
-		birdButton = new JRadioButton(birdString);
-		birdButton.setMnemonic(KeyEvent.VK_B);
-		birdButton.setActionCommand(birdString);
-		birdButton.setSelected(true);
-		birdButton.addActionListener(this);
-
-		catButton = new JRadioButton(catString);
-		catButton.setMnemonic(KeyEvent.VK_C);
-		catButton.setActionCommand(catString);
-		catButton.addActionListener(this);
-
-		dogButton = new JRadioButton(dogString);
-		dogButton.setMnemonic(KeyEvent.VK_D);
-		dogButton.setActionCommand(dogString);
-		dogButton.addActionListener(this);
-
-		ButtonGroup group = new ButtonGroup();
-		group.add(birdButton);
-		group.add(catButton);
-		group.add(dogButton);
-
-		// JCheckBox
-		chinCheckBox = new JCheckBox("Chin");
-		chinCheckBox.setMnemonic(KeyEvent.VK_C);
-		chinCheckBox.setSelected(true);
-		glassesCheckBox = new JCheckBox("Glasses");
-		glassesCheckBox.setMnemonic(KeyEvent.VK_G);
-		glassesCheckBox.setSelected(false);
-		hairCheckBox = new JCheckBox("Hair");
-		hairCheckBox.setMnemonic(KeyEvent.VK_H);
-		hairCheckBox.setSelected(true);
-		chinCheckBox.addItemListener(this);
-		glassesCheckBox.addItemListener(this);
-		hairCheckBox.addItemListener(this);
+//		// JCheckBox
+//		chinCheckBox = new JCheckBox("Chin");
+//		chinCheckBox.setMnemonic(KeyEvent.VK_C);
+//		chinCheckBox.setSelected(true);
+//		glassesCheckBox = new JCheckBox("Glasses");
+//		glassesCheckBox.setMnemonic(KeyEvent.VK_G);
+//		glassesCheckBox.setSelected(false);
+//		hairCheckBox = new JCheckBox("Hair");
+//		hairCheckBox.setMnemonic(KeyEvent.VK_H);
+//		hairCheckBox.setSelected(true);
+//		chinCheckBox.addItemListener(this);
+//		glassesCheckBox.addItemListener(this);
+//		hairCheckBox.addItemListener(this);
 
 		// JSlider
 		framesPerSecond = new JSlider(JSlider.HORIZONTAL, 0, 30, 15);
@@ -204,24 +204,24 @@ public class BasicControlPanel extends JPanel
 		passWordField.addActionListener(this);
 
 		// Adding stuff to display
-		add(btOk, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0, GridBagConstraints.NORTHWEST, GridBagConstraints.BOTH,
-				new Insets(10, 10, 10, 10), 0, 0));
-		add(comboBox, new GridBagConstraints(1, 0, 1, 1, 0.0, 0.0, GridBagConstraints.NORTHWEST,
-				GridBagConstraints.BOTH, new Insets(10, 10, 10, 10), 0, 0));
-		add(listScroller, new GridBagConstraints(2, 0, 1, 1, 0.0, 0.0, GridBagConstraints.NORTHWEST,
-				GridBagConstraints.BOTH, new Insets(10, 10, 10, 10), 0, 0));
-		add(birdButton, new GridBagConstraints(0, 1, 1, 1, 0.0, 0.0, GridBagConstraints.NORTHWEST,
-				GridBagConstraints.NONE, new Insets(10, 10, 10, 10), 0, 0));
-		add(catButton, new GridBagConstraints(1, 1, 1, 1, 0.0, 0.0, GridBagConstraints.NORTHWEST,
-				GridBagConstraints.NONE, new Insets(10, 10, 10, 10), 0, 0));
-		add(dogButton, new GridBagConstraints(2, 1, 1, 1, 0.0, 0.0, GridBagConstraints.NORTHWEST,
-				GridBagConstraints.NONE, new Insets(10, 10, 10, 10), 0, 0));
-		add(chinCheckBox, new GridBagConstraints(0, 2, 1, 1, 0.0, 0.0, GridBagConstraints.NORTHWEST,
-				GridBagConstraints.NONE, new Insets(10, 10, 10, 10), 0, 0));
-		add(glassesCheckBox, new GridBagConstraints(1, 2, 1, 1, 0.0, 0.0, GridBagConstraints.NORTHWEST,
-				GridBagConstraints.NONE, new Insets(10, 10, 10, 10), 0, 0));
-		add(hairCheckBox, new GridBagConstraints(2, 2, 1, 1, 0.0, 0.0, GridBagConstraints.NORTHWEST,
-				GridBagConstraints.NONE, new Insets(10, 10, 10, 10), 0, 0));
+//		add(btOk, new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0, GridBagConstraints.NORTHWEST, GridBagConstraints.BOTH,
+//				new Insets(10, 10, 10, 10), 0, 0));
+//		add(comboBox, new GridBagConstraints(1, 0, 1, 1, 0.0, 0.0, GridBagConstraints.NORTHWEST,
+//				GridBagConstraints.BOTH, new Insets(10, 10, 10, 10), 0, 0));
+//		add(listScroller, new GridBagConstraints(2, 0, 1, 1, 0.0, 0.0, GridBagConstraints.NORTHWEST,
+//				GridBagConstraints.BOTH, new Insets(10, 10, 10, 10), 0, 0));
+//		add(birdButton, new GridBagConstraints(0, 1, 1, 1, 0.0, 0.0, GridBagConstraints.NORTHWEST,
+//				GridBagConstraints.NONE, new Insets(10, 10, 10, 10), 0, 0));
+//		add(catButton, new GridBagConstraints(1, 1, 1, 1, 0.0, 0.0, GridBagConstraints.NORTHWEST,
+//				GridBagConstraints.NONE, new Insets(10, 10, 10, 10), 0, 0));
+//		add(dogButton, new GridBagConstraints(2, 1, 1, 1, 0.0, 0.0, GridBagConstraints.NORTHWEST,
+//				GridBagConstraints.NONE, new Insets(10, 10, 10, 10), 0, 0));
+//		add(chinCheckBox, new GridBagConstraints(0, 2, 1, 1, 0.0, 0.0, GridBagConstraints.NORTHWEST,
+//				GridBagConstraints.NONE, new Insets(10, 10, 10, 10), 0, 0));
+//		add(glassesCheckBox, new GridBagConstraints(1, 2, 1, 1, 0.0, 0.0, GridBagConstraints.NORTHWEST,
+//				GridBagConstraints.NONE, new Insets(10, 10, 10, 10), 0, 0));
+//		add(hairCheckBox, new GridBagConstraints(2, 2, 1, 1, 0.0, 0.0, GridBagConstraints.NORTHWEST,
+//				GridBagConstraints.NONE, new Insets(10, 10, 10, 10), 0, 0));
 		add(monthSpinner, new GridBagConstraints(0, 3, 1, 1, 0.0, 0.0, GridBagConstraints.NORTHWEST,
 				GridBagConstraints.HORIZONTAL, new Insets(10, 10, 10, 10), 0, 0));
 		add(dateSpinner, new GridBagConstraints(1, 3, 1, 1, 0.0, 0.0, GridBagConstraints.NORTHWEST,
@@ -238,24 +238,24 @@ public class BasicControlPanel extends JPanel
 				GridBagConstraints.HORIZONTAL, new Insets(10, 10, 10, 10), 0, 0));
 
 		// Klebstoff tut immer gut ...
-		add(Box.createVerticalGlue(), new GridBagConstraints(0, 6, 3, 1, 0.0, 1.0, GridBagConstraints.NORTHWEST,
-				GridBagConstraints.VERTICAL, new Insets(0, 0, 0, 0), 0, 0));
-		add(Box.createHorizontalGlue(), new GridBagConstraints(3, 0, 1, 6, 1.0, 0.0, GridBagConstraints.NORTHWEST,
-				GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
+//		add(Box.createVerticalGlue(), new GridBagConstraints(0, 6, 3, 1, 0.0, 1.0, GridBagConstraints.NORTHWEST,
+//				GridBagConstraints.VERTICAL, new Insets(0, 0, 0, 0), 0, 0));
+//		add(Box.createHorizontalGlue(), new GridBagConstraints(3, 0, 1, 6, 1.0, 0.0, GridBagConstraints.NORTHWEST,
+//				GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		if (e.getActionCommand().equals("ok")) {
-			StatusBar.showStatus(this, e, e.getActionCommand());
-		}
-		if (e.getActionCommand().equals("petList")) {
-			StatusBar.showStatus(this, e,
-					e.getActionCommand() + "->" + ((JComboBox) e.getSource()).getSelectedItem().toString());
-		}
-		if (e.getActionCommand().equals(birdString) || e.getActionCommand().equals(catString)
-				|| e.getActionCommand().equals(dogString)) {
-			StatusBar.showStatus(this, e, e.getActionCommand());
-		}
+//		if (e.getActionCommand().equals("ok")) {
+//			StatusBar.showStatus(this, e, e.getActionCommand());
+//		}
+//		if (e.getActionCommand().equals("petList")) {
+//			StatusBar.showStatus(this, e,
+//					e.getActionCommand() + "->" + ((JComboBox) e.getSource()).getSelectedItem().toString());
+//		}
+//		if (e.getActionCommand().equals(birdString) || e.getActionCommand().equals(catString)
+//				|| e.getActionCommand().equals(dogString)) {
+//			StatusBar.showStatus(this, e, e.getActionCommand());
+//		}
 	}
 
 	public void valueChanged(ListSelectionEvent e) {

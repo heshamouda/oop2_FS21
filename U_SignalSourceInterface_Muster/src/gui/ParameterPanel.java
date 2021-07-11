@@ -32,7 +32,7 @@ public class ParameterPanel extends JPanel implements ActionListener, ChangeList
 		
 		
 		slFilter.setMajorTickSpacing(1);
-		//slFilter.setMinorTickSpacing(2);
+//		slFilter.setMinorTickSpacsliing(2);
 		slFilter.setPaintTicks(true);
 		slFilter.setPaintLabels(true);
 		slFilter.addChangeListener(this);

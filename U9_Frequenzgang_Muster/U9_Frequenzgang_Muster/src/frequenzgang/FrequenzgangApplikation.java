@@ -24,11 +24,9 @@ public class FrequenzgangApplikation extends JFrame {
 		Controller controller = new Controller(model);
 		View view = new View(controller);
 		controller.setView(view);
-
 		model.addObserver(view);
-		
-
 		add(view);
+		
 		pack();
 
 		setMinimumSize(getPreferredSize());

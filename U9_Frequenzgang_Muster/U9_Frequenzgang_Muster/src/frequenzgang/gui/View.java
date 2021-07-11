@@ -35,8 +35,9 @@ public class View extends JPanel implements Observer, ActionListener {
 		this.controller = controller;
 		add(new JLabel("Zaehler: "), new GridBagConstraints(0, 0, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER,
 				GridBagConstraints.NONE, new Insets(10, 10, 10, 10), 0, 0));
+	 
 		add(tfZaehler, new GridBagConstraints(1, 0, 1, 1, 1.0, 0.0, GridBagConstraints.CENTER,
-				GridBagConstraints.HORIZONTAL, new Insets(10, 10, 10, 10), 0, 0));
+				GridBagConstraints.HORIZONTAL, new Insets(10, 10, 10, 10), 0, 0));		
 		tfZaehler.setText("0, 0, 0, 0, 1.5585e+16");
 
 		add(new JLabel("Nenner: "), new GridBagConstraints(0, 1, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER,

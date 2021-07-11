@@ -39,7 +39,7 @@ public class ReceiverPanel extends JPanel {
 
 		add(tfZeile, BorderLayout.NORTH);
 		add(btClear, BorderLayout.SOUTH);
-		add(taLeft, BorderLayout.WEST);
+		add(taLeft, BorderLayout.CENTER);
 
 		btClear.addActionListener(new ActionListener() {
 

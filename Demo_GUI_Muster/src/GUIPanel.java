@@ -29,6 +29,7 @@ public class GUIPanel extends JPanel implements ActionListener {
 
 		birdButton.addActionListener(this);
 //		birdButton.addActionListener(new BirdAction());
+	 
 
 		catButton = new JRadioButton("Cat");
 		catButton.setMnemonic(KeyEvent.VK_C);

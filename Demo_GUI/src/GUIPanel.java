@@ -45,11 +45,13 @@ public class GUIPanel extends JPanel implements ActionListener {
 //			}
 //			
 //		});
-
+ 
+	    //groups the buttons
 		ButtonGroup group = new ButtonGroup();
 		group.add(birdButton);
 		group.add(catButton);
-
+		
+		//buttons to the panel
 		add(birdButton);
 		add(catButton);
 	}
@@ -57,22 +59,13 @@ public class GUIPanel extends JPanel implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource().equals(birdButton)) {
-			System.out.println(birdButton.getActionCommand() + "Button selected");
+			//get the message of the command
+			System.out.println(birdButton.getActionCommand() + " Button selected");
 		}
 		if (e.getSource().equals(catButton)) {
-			System.out.println(catButton.getActionCommand() + "Button selected");
+			System.out.println(catButton.getActionCommand() + " Button selected");
 		}
 
 	}
-
-	class BirdAction implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			System.out.println(birdButton.getActionCommand() + " mit private Attribut" + zahl);
-
-		}
-
-	}
-
+	 
 }

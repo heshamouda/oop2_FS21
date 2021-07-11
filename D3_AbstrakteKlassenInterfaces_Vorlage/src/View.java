@@ -10,7 +10,9 @@ public class View extends JPanel {
 	private TraceV8 trace = new TraceV8(this);
 	private Rechteck rechteck = new Rechteck(50, 50, 25, 75);
 	private Kreis kreis = new Kreis(75, 125, 75);
-	private Form[] formen = new Form[0];
+	private Form[] formen = new Form[2];
+	
+	
 
 	public View() {
 		super(null);
@@ -21,6 +23,7 @@ public class View extends JPanel {
 	@Override
 	public void paintComponent(Graphics g) {
 //		trace.paintCall();
+		
 		for (int i = 0; i < formen.length; i++) {
 			formen[i].zeichne(g);
 		}

@@ -16,9 +16,9 @@ import util.Observable;
 public class PropertyPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 
-	private JTextField tfMinVal = new JTextField(10);
+	private JTextField tfMinVal = new JTextField(100);
 
-	private JTextField tfMaxVal = new JTextField(10);
+	private JTextField tfMaxVal = new JTextField(2);
 
 	private JTextField tfMeanPower = new JTextField(10);
 

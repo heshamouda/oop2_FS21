@@ -56,6 +56,20 @@ abstract class Form {
 
 }
 
+class Kreis extends Form {
+	public Boolean binKreis;
+
+	public Kreis(int x, int y, int d) {
+		super(x, y, d, d);
+	}
+
+	public void zeichne(Graphics g) {
+		g.setColor(Color.RED);
+		g.drawOval(x, y, breite, hoehe);
+	}
+}
+
+
 class Rechteck extends Form implements SimpleTimerListener {
 	public Boolean binRechteck;
 
@@ -64,7 +78,7 @@ class Rechteck extends Form implements SimpleTimerListener {
 	}
 
 	public void zeichne(Graphics g) {
-		// g.setColor(Color.GREEN);
+		g.setColor(Color.GREEN);
 		g.drawRect(x, y, breite, hoehe);
 	}
 
@@ -82,15 +96,3 @@ class Rechteck extends Form implements SimpleTimerListener {
 
 }
 
-class Kreis extends Form {
-	public Boolean binKreis;
-
-	public Kreis(int x, int y, int d) {
-		super(x, y, d, d);
-	}
-
-	public void zeichne(Graphics g) {
-		g.setColor(Color.BLACK);
-		g.drawOval(x, y, breite, hoehe);
-	}
-}

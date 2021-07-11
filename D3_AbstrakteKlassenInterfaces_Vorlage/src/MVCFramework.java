@@ -17,6 +17,8 @@ public class MVCFramework extends JFrame {
 	public static void main(String args[]) {
 		TraceV8.mainCall();
 		MVCFramework demo = new MVCFramework();
+		View view= new View();
+		 
 		demo.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
 				System.exit(0);

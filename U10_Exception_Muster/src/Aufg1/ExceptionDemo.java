@@ -56,6 +56,7 @@ class ExceptionPanel extends JPanel implements ActionListener {
 			}catch(ArithmeticException exc) {
 				ausgabeTf.setText("Division by zero not allowed!!");
 				System.out.println("catch: " + exc.getMessage());
+				System.out.println("catch: "+ exc.toString());
 			}
 			finally {
 				System.out.println("finally wird immer durchlaufen!");

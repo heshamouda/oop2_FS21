@@ -24,7 +24,7 @@ public class Ball {
 //			for (int i = 0; i < 2 * 10e6; i++) // Aufgabe 1
 
 			try {
-				Thread.sleep(50);
+				Thread.sleep(500);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

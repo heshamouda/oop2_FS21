@@ -25,7 +25,7 @@ public class RunnableBall implements Runnable {
 			g.setColor(Color.black);
 			g.drawRect(xLinks, yOben, xRechts - xLinks + d, yUnten - yOben + d);
 			try {
-				Thread.sleep(50);
+				Thread.sleep(100);
 				//System.out.println(Thread.currentThread());
 			} catch (InterruptedException e) {
 				System.err.println("Ausnahme bei Sleep");

@@ -46,7 +46,7 @@ public class AWTRunnableDemo extends Frame implements ActionListener {
 				i--;
 				ball[i].stoppen();
 				try {
-					Thread.sleep(50);
+					Thread.sleep(5000);
 				} catch (InterruptedException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

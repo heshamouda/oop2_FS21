@@ -42,7 +42,7 @@ public class AWTDemo extends Frame implements ActionListener{
 		AWTDemo f = new AWTDemo();
 		f.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
-				System.exit(0);
+				System.exit(1);
 			}
 		});
 		f.setSize(400, 300);

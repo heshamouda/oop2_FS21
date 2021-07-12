@@ -48,6 +48,8 @@ public class AWTThreadDemo extends Frame implements ActionListener {
 //				ball.stoppen();
 				i--;
 				ball[i].stoppen();
+				
+				
 				System.out.println(ball[i].getState());// hier lebt er noch im waiting Modus
 				try {
 					Thread.sleep(50);

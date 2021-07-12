@@ -16,7 +16,7 @@ public class Client {
 	void test() throws IOException {
 		//Socket server = new Socket("127.0.0.1", 11112);
 		//Socket server = new Socket("192.168.178.55", 11112);//Fritzbox
-		Socket server = new Socket("192.168.178.49", 11112);//Raspi
+		Socket server = new Socket("127.0.0.1", 11112);//Raspi
 		
 		schreibeNachricht(server, "Nachricht von Client ...");
 		System.out.println(server);

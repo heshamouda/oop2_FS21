@@ -1,0 +1,59 @@
+#netlist
+ba	Nin	N0	{1}{1}
+b0	N0	N1	{1.000000000000001e-01}{1}
+bb	N1	N2	{1}{1}
+bc	N2	Nout	{1}{1}
+bd	N0	N3	{1}{1}
+be	N2	N4	{1}{1}
+s1	N5	N1	{1, 0}{1}
+b1	N3	N5	{8.366233572604797e-22}{1}
+a1	N4	N5	{-7.072425126791396e-05}{1}
+bf	N3	N6	{1}{1}
+bg	N4	N7	{1}{1}
+s2	N8	N5	{1, 0}{1}
+b2	N6	N8	{9.084216152499147e-09}{1}
+a2	N7	N8	{-2.370794463466049e-08}{1}
+bh	N6	N9	{1}{1}
+bi	N7	N10	{1}{1}
+s3	N11	N8	{1, 0}{1}
+b3	N9	N11	{2.940562706342312e-29}{1}
+a3	N10	N11	{-4.478665531676968e-13}{1}
+bk	N9	N12	{1}{1}
+bl	N10	N13	{1}{1}
+s4	N14	N11	{1, 0}{1}
+b4	N12	N14	{4.010149318236075e-18}{1}
+a4	N13	N14	{-4.010149318236067e-17}{1}
+
+#signalflow
+P1	Nin - ba - N0 - b0 - N1 - bb - N2 - bc - Nout
+D1	1	
+P2	Nin - ba - N0 - bd - N3 - b1 - N5 - s1 - N1 - bb - N2 - bc - Nout
+D2	1	
+P3	Nin - ba - N0 - bd - N3 - bf - N6 - b2 - N8 - s2 - N5 - s1 - N1 - bb - N2 - bc - Nout
+D3	1	
+P4	Nin - ba - N0 - bd - N3 - bf - N6 - bh - N9 - b3 - N11 - s3 - N8 - s2 - N5 - s1 - N1 - bb - N2 - bc - Nout
+D4	1	
+P5	Nin - ba - N0 - bd - N3 - bf - N6 - bh - N9 - bk - N12 - b4 - N14 - s4 - N11 - s3 - N8 - s2 - N5 - s1 - N1 - bb - N2 - bc - Nout
+D5	1	
+D	1	L1	L2	L3	L4	
+
+#loops
+L1	N1 - bb - N2 - be - N4 - a1 - N5 - s1 - 
+L2	N1 - bb - N2 - be - N4 - bg - N7 - a2 - N8 - s2 - N5 - s1 - 
+L3	N1 - bb - N2 - be - N4 - bg - N7 - bi - N10 - a3 - N11 - s3 - N8 - s2 - N5 - s1 - 
+L4	N1 - bb - N2 - be - N4 - bg - N7 - bi - N10 - bl - N13 - a4 - N14 - s4 - N11 - s3 - N8 - s2 - N5 - s1 - 
+
+
+#matlab - Code:
+%% 
+clear all; close all; clc;
+
+fp = [1e3, 4e3];
+wp = 2*pi.*fp;
+
+[B, A] = ellip(2, 3, 20, wp, 's');
+
+B = B/A(length(A));
+A = A/A(length(A));
+
+freqs(B,A);
